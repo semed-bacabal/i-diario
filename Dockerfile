@@ -8,6 +8,10 @@ ARG BUNDLER_VERSION=2
 ENV APP_PATH /app
 ENV BUNDLE_PATH /box
 
+RUN sed -i 's/deb.debian.org/archive.debian.org/g' /etc/apt/sources.list && \
+    sed -i 's|security.debian.org/debian-security|archive.debian.org/debian-security|g' /etc/apt/sources.list && \
+    sed -i '/buster-updates/d' /etc/apt/sources.list
+
 RUN apt-get update -qq
 RUN apt-get install -y \
     build-essential \
