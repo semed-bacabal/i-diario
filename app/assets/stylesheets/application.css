@@ -1,0 +1,455 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap_and_overrides
+ *= require smartadmin_and_overrides
+ *= require jNotify.jquery.css
+ *= require educacao
+ *= require morris
+ *= require bootstrap-select
+ *= require header-select2
+ *= require jquery-file-upload/jquery.fileupload
+ *= require offline-theme-default
+ *= require offline-language-portuguese-brazil-indicator
+ *= require offline-language-portuguese-brazil
+ *= require bootstrap-datetimepicker
+ *= require summernote
+ *= require_tree ./resources
+ *= require_self
+ */
+
+textarea.form-control.text {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+textarea.form-control.text {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.txt-color-portabilis{
+	color: #005495;
+}
+
+.registration-link{
+  text-decoration: none !important;
+  color: #000 !important
+}
+
+.registration-paragraph{
+  width: 101%;
+}
+
+.registration-link-hover:hover{
+  text-decoration: underline!important
+}
+
+.center {
+  text-align: center;
+}
+
+#paginator tr td{
+  background-color: rgb(250,250,250);
+}
+
+#paginator ul.pagination{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+form.smart-form label abbr {
+  color: #953b39;
+}
+
+form.smart-form .control-group.error input,
+form.signup .control-group.error input {
+  background-color: #fff0f0;
+}
+
+form.signup .control-group.error input,
+form.signup .control-group.error select,
+form.smart-form .control-group.error > div > div > input,
+form.smart-form .control-group.error > div > input,
+form.smart-form .control-group.error select,
+form.smart-form .control-group.error .select2-container {
+  border: 1px solid #b94a48;
+}
+
+form.smart-form .control-group.error .select2-container a.select2-choice,
+form.smart-form .control-group.error .select2-container ul.select2-choices {
+  border: none;
+}
+
+form.smart-form .control-group.error span.help-inline,
+form.smart-form .help-inline.error,
+form.signup .error .help-inline,
+form.smart-form .control-group.error label{
+  color: #b94a48;
+}
+
+abbr {
+  color: #b94a48;
+}
+
+#page_entries_info{
+  font-weight: bold;
+  font-style: italic;
+  color: #969696;
+  margin-top: 10px;
+}
+
+#change-permission {
+  float: left;
+  margin-right: 6px;
+  margin-left: 6px;
+  padding-top: 14px;
+}
+
+#change-permission > a {
+  color: #FFF;
+}
+
+table.table-condensed.table-bordered > tbody > tr > td.no_record_found,
+table.table-condensed.table-bordered > tbody > tr > td.no_item_found {
+  text-align: center;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  color: #969696;
+}
+
+#img-prev{
+  width: 150px;
+  height: 200px;
+  border: 1px solid #ccc;
+}
+
+.pagination{
+  font-size: 12px;
+}
+
+td.actions{
+  text-align: right;
+}
+
+/*
+Considerar remover quando corrigido problema:
+https://github.com/select2/select2/issues/2412
+*/
+.select2-hidden-accessible {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.success{
+  color: #356635;
+}
+
+.danger{
+  color: #953b39;
+}
+.warning{
+  color: #869539;
+}
+.dependence-student{
+  color: #a90329;
+}
+.exempted-student{
+  color: #101890;
+}
+.inactive-student{
+  color: darkgray;
+}
+.exempted-student-from-discipline, .in-active-search{
+  color: #869539;
+}
+.select2-container.form-control {
+     height: auto !important;
+}
+.desactivated{
+  color: #a39b9b;
+}
+
+.smart-form .list-group-item{
+  padding: 10px 15px;
+  margin-bottom: -1px;
+}
+
+ul#contents-list li.list-group-item.active{
+  z-index: 1;
+}
+
+.margin-left-17px{
+  margin-left: 17px;
+}
+.daily-note-student-legend{
+  font-size: 11px;
+  font-style: italic;
+}
+.custom-login-image{
+  position:absolute;
+  top:100px;
+  left:10px;
+}
+@media only screen and (max-width: 1200px) {
+  .custom-login-image{
+    display:none;
+  }
+}
+.daily-note-student-legend{
+  font-size: 11px;
+  font-style: italic;
+}
+.descriptive-exam-student-legend{
+  font-size: 11px;
+  font-style: italic;
+}
+
+#content-page {
+  overflow-x: auto;
+  padding-right: 14px;
+}
+
+/* clearfix  */
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected {
+  border: 0 !important;
+}
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected:after {
+  content: "";
+  display: table;
+  clear: both;
+  border: 0;
+}
+
+.bootstrap-select.open > .dropdown-menu{
+ -o-transition-property: none;
+ -moz-transition-property: none;
+ -ms-transition-property: none;
+ -webkit-transition-property: none;
+ transition-property: none;
+ -o-transform: none;
+ -moz-transform: none;
+ -ms-transform: none;
+ -webkit-transform: none;
+ transform: none;
+ -webkit-animation: none;
+ -moz-animation: none;
+ -o-animation: none;
+ -ms-animation: none;
+ animation: none;
+}
+
+.bootstrap-select.open > .dropdown-menu.open > .dropdown-menu{
+ -o-transition-property: none;
+ -moz-transition-property: none;
+ -ms-transition-property: none;
+ -webkit-transition-property: none;
+ transition-property: none;
+ -o-transform: none;
+ -moz-transform: none;
+ -ms-transform: none;
+ -webkit-transform: none;
+ transform: none;
+ -webkit-animation: none;
+ -moz-animation: none;
+ -o-animation: none;
+ -ms-animation: none;
+ animation: none;
+}
+
+.ratio {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 0;
+    padding-bottom: 100%;
+    position: relative;
+    width: 100%;
+}
+.parent-dashboard-avatar{
+  height: 90px;
+  width: 90px;
+}
+a.parent-dashboard-basic-info-links {
+  text-decoration: none;
+  cursor: pointer;
+  color: #FFF;
+}
+.gray{
+  color: #737373;
+}
+.up-down-accordion {
+  float: right;
+}
+
+.dropup .dropdown-menu {
+  margin-bottom: -8px;
+  -webkit-box-shadow: 3px 0px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 3px 0px 12px rgba(0, 0, 0, 0.175);
+}
+
+.login-info-navigation {
+  border-radius: 20px;
+  margin-top: 15px !important;
+}
+
+.login-info-navigation span {
+  padding: 5px 5px 7px !important;
+}
+
+@media (min-width: 1250px) {
+  .login-info {
+    display: none !important;
+  }
+}
+
+header .project-context {
+  display: inline-block;
+  padding: 7px 7px 0;
+  position: relative;
+}
+
+span.multiline {
+  white-space: pre-line
+}
+
+.new-save-style {
+  border-color: #8ac38b;
+  color: #356635;
+  background-color: #cde0c4;
+  width: 180px;
+}
+
+.new-save-style:hover {
+  background-color: #b6d1a9;
+}
+
+.new-delete-style {
+  border-color: #c26565;
+  color: #953b39;
+  background: #ffffff;
+}
+
+.new-delete-style:hover {
+  background-color: #ececec;
+  color: #953b39;
+}
+
+.new-btn-success {
+  background-color: #2bdc41;
+  color: #ffffff;
+}
+
+.new-btn-success:hover {
+  background-color: #25c238;
+  color: #485b8c;
+}
+
+.new-btn-danger {
+  background-color: #e84e54;
+  color: #ffffff;
+}
+
+.new-btn-danger:hover {
+  background-color: #c43d42;
+  color: #485b8c;
+}
+
+.list-group-item.active {
+  background-color: #485b8c;
+  border-color: #485b8c;
+}
+
+.fieldset {
+  border: 1px solid #ddd !important;
+  position: relative;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.fieldset legend {
+  font-size: 13px;
+  font-weight: 200;
+  margin-bottom: -20px;
+  width: auto;
+  border: 0;
+  padding: 5px 5px 5px 10px;
+}
+
+.shortcut-icon {
+  font-size: 5em !important;
+  line-height: 1.5em !important;
+}
+
+.shortcut a span {
+  display: block;
+}
+
+.shortcut {
+  height: 150px;
+}
+
+#header .select2-arrow {
+  background-color: #4c4f53;
+  color: white;
+  border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  width: 20px;
+}
+
+#header .select2-chosen {
+  background-color: #4c4f53;
+  color: white;
+  border-radius: 3px 0 0 3px;
+  -webkit-border-radius: 3px 0 0 3px;
+}
+
+#header .select2-choice {
+  height: 31px;
+}
+
+#header .select2-chosen .select2-user-result {
+  margin-left: 5px;
+}
+
+#header span.label {
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 7px;
+}
+
+#header form .select-role {
+  margin-top: 11px;
+}
+
+.student-name {
+  font-weight: bold;
+}
+
+.student-name-cell {
+  background-color: #5D98CC !important;
+  color: white;
+}
+
+.help-link {
+  text-decoration-line: underline;
+  color: #838A90;
+  float: right;
+  margin-right: 10px;
+  line-height: 34px;
+}

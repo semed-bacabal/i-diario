@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="extr-page">
+  <head>
+    <title>i-Diário</title>
+    <%= render 'layouts/google_tag_manager_head' %>
+    <%= render '/layouts/default_headers' %>
+  </head>
+
+  <body class="animated fadeInDown" id="registration-page">
+    <%= render 'layouts/google_tag_manager_body' %>
+    <%= render '/layouts/not_logged_header' %>
+
+    <div id="main" role="main">
+      <div id="content" class="container">
+        <div class="row">
+          <%= bootstrap_flash %>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+escola_y:
+  name: "Escola A"
+  author: john_doe
+  unit_type: "school_unit"
+  api_code: "124370"
+  email: "escola_a@email.com"
+
+escola_x:
+  name: "Escola X"
+  author: john_doe
+  unit_type: "school_unit"
+
+escola_z:
+  name: "Escola Z"
+  author: john_doe
+  unit_type: "school_unit"
+  api_code: "703022"
+  email: "escola_a@email.com"

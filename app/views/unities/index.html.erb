@@ -1,0 +1,70 @@
+<div class="widget-body no-padding">
+  <div class="table-responsive">
+  <%= simple_form_for :search, {url: unities_path, method: :get,
+                                html: {class: 'filterable_search_form'}} do |f| %>
+    <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover selectable" id="resources">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div class="btn-group">
+              <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                Ações <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to 'Excluir', destroy_batch_unities_path, id: 'destroy-batch' %>
+                </li>
+              </ul>
+            </div>
+          </th>
+
+          <th scope="col"><%= f.input :search_name, label: false, placeholder: "Filtrar nome" %></th>
+          <th scope="col"><%= f.input :unit_type, as: :select, label: false,
+                                   prompt: "Filtrar tipo de unidade", collection: UnitTypes %></th>
+          <th scope="col"><%= f.input :phone, as: :tel, label: false, placeholder: "Filtrar telefone" %></th>
+          <th scope="col"><%= f.input :email, label: false, placeholder: "Filtrar e-mail" %></th>
+          <th scope="col"><%= f.input :responsible, label: false, placeholder: "Filtrar responsável" %></th>
+
+          <th scope="col" class="actions">
+            <a onclick="goToSync()" class="btn btn-info">
+              <i class="fa fa-refresh"></i> Sincronizar
+            </a>
+            <script>
+              function goToSync() {
+                alert('<%= t('.synchronize_html') %>');
+
+                location.href = Routes.edit_ieducar_api_configurations_pt_br_path();
+              }
+            </script>
+          </th>
+        </tr>
+        <tr>
+          <th scope="col"><input type="checkbox" id="select-all"></th>
+          <th scope="col"><%= Unity.human_attribute_name :name %></th>
+          <th scope="col"><%= Unity.human_attribute_name :unit_type %></th>
+          <th scope="col"><%= Unity.human_attribute_name :phone %></th>
+          <th scope="col"><%= Unity.human_attribute_name :email %></th>
+          <th scope="col"><%= Unity.human_attribute_name :responsible %></th>
+          <th scope="col" class="actions" style="width: 160px;">
+            <% if policy(Unity).new? %>
+                <%= link_to t('.new_html'), new_unity_path, class: "btn btn-primary" %>
+            <% end %>
+          </th>
+        </tr>
+      </thead>
+
+      <%= render 'resources' %>
+      <tfoot id="paginator" class="remote">
+        <td colspan="7">
+          <div id="page_entries_info" class="pull-left hidden-xs">
+            <%= page_entries_info @unities %>
+          </div>
+          <div class="pull-right">
+            <%= paginate @unities %>
+          </div>
+        </td>
+      </tfoot>
+    </table>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      user:
+        name: "Nome"
+        email: "E-mail"
+        encrypted_password: "Senha criptografada"
+        password: "Senha"
+        password_confirmation: "Confirme a senha"
+        remember_me: "Lembrar senha"
+        first_name: "Nome"
+        last_name: "Sobrenome"
+        login: "Nome de usuário"
+        phone: "Celular"
+        cpf: "CPF"
+        authorize_email_and_sms: "Autorizar envio de e-mails e mensagens SMS"
+        current_password: "Senha atual"
+        credentials: "Informe o Nome de usuário, E-mail ou CPF"
+        kind: "Tipo"
+        student: "Aluno"
+        student_id: "Aluno"
+        role_id: "Permissão"
+        role: "Permissão"
+        admin: "Usuário administrador"
+        teacher: "Professor"
+        teacher_id: "Professor"
+        assumed_teacher_id: "Professor"
+        current_user_role_id: "Perfil"
+        current_unity_id: "Unidade"
+        current_classroom_id: "Turma"
+        current_discipline_id: "Disciplina"
+        receive_news: "Desejo receber novidades do produto por e-mail"
+        receive_news_related_daily_teacher: "Relacionados ao diário do professor"
+        receive_news_related_tools_for_parents: "Relacionados a ferramentas para pais e alunos"
+        receive_news_related_all_matters: "Relacionados a todos os assuntos do produto"
+        current_school_year: 'Ano letivo'
+        expiration_date: 'Data de expiração'
+
+    errors:
+      models:
+        user:
+          attributes:
+            base:
+              no_role_found: "Você não possui permissão de acesso. Por favor, contate o responsável pelo sistema no seu município."
+              must_inform_email_or_cpf: 'Necessário informar e-mail ou CPF'
+            phone:
+              incorrect_format: "formato incorreto"
+            cpf:
+              incorrect_format: "formato incorreto"
+            login:
+              can_not_be_a_cpf: "não pode ser um CPF"
+              can_not_be_an_email: "não pode ser um email"
+            email:
+              invalid_email: 'não pode usar esse email, reservado para alunos'
+              must_be_changed: 'Precisa ser alterado'
+            receive_news:
+              must_fill_receive_news_options: "Por favor, selecione pelo menos uma das opções abaixo."
+            password:
+              must_be_changed: 'Precisa ser alterado'
+

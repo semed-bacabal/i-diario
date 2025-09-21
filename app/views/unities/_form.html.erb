@@ -1,0 +1,104 @@
+<%= simple_form_for @unity, html: { class: "smart-form" } do |f| %>
+  <%= f.error_notification %>
+
+  <fieldset>
+    <div class="row">
+      <div class="col col-sm-6">
+        <%= f.input :unit_type, as: :select2, elements: UnitTypes.to_select.to_json %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-sm-6">
+        <%= f.input :name %>
+      </div>
+
+      <div class="col col-sm-6">
+        <%= f.input :email %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-sm-3">
+        <%= f.input :phone, as: :tel %>
+      </div>
+
+      <div class="col col-sm-6">
+        <%= f.input :responsible %>
+      </div>
+
+      <div class="col col-sm-3" data-unity-api-code>
+        <%= f.input :api_code do %>
+          <i class="icon-append fa fa-question-circle"></i>
+          <%= f.input_field :api_code, rel: 'popover-hover',
+            disabled: @unity.persisted? && @unity.api?,
+            :'data-placement' => 'top',
+            :'data-content' => t('unity.help.api_code'), :'data-toggle'=> 'popover' %>
+        <% end %>
+      </div>
+    </div>
+  </fieldset>
+
+  <%= f.association :address do |a| %>
+    <%= render 'address/shared_form', f: a, show_map: !Rails.env.test? %>
+  <% end %>
+
+  <% if @unity.persisted? && policy(@unity).view_school_calendars? %>
+    <%= render 'opened_year' %>
+  <% end %>
+
+  <fieldset>
+    <legend><%= t('activerecord.models.unity_equipment', count: 2) %></legend>
+
+    <% if f.object.errors[:unity_equipments].present? %>
+      <div class="alert alert-danger alert-block ">
+        <i class="fa-fw fa fa-times"></i>
+        <span class="help-inline">
+          <%= f.object.errors[:unity_equipments].join "<br />" %>
+        </span>
+      </div>
+    <% end %>
+
+    <table class="table table-striped table-bordered table-condensed records">
+      <thead>
+        <tr>
+          <th><%= UnityEquipment.human_attribute_name :code %></th>
+          <th><%= UnityEquipment.human_attribute_name :biometric_type %></th>
+          <th width="73px"></th>
+        </tr>
+      </thead>
+
+      <tbody id="unity-equipments">
+        <%= f.simple_fields_for :unity_equipments do |unity_equipment| %>
+          <%= render 'unity_equipment_fields', f: unity_equipment %>
+        <% end %>
+      </tbody>
+
+      <tfoot class="links">
+        <tr>
+          <td colspan="5">
+            <%= link_to_add_association t('.add_unity_equipment'), f, :unity_equipments,
+              class: 'btn btn-success btn-sm',
+              :"data-association-insertion-method" => "append",
+              :"data-association-insertion-node" => "#unity-equipments" %>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </fieldset>
+
+  <footer>
+    <%= link_to unities_path, class: "btn btn-default" do %>
+      Voltar
+    <% end %>
+
+    <% if @unity.persisted? %>
+      <%= link_to 'Histórico', history_unity_path(@unity), class: 'btn btn-info' %>
+    <% end %>
+
+    <button type="submit" class="btn btn-primary">
+      Salvar
+    </button>
+  </footer>
+<% end %>

@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    attributes:
+      daily_frequency_student:
+        student: "Aluno"
+        student_id: "Aluno"
+        present: "Presença"
+        absence_justification_student_id: "Justificativa de falta"
+        type_of_teaching: "Modalidade de ensino"

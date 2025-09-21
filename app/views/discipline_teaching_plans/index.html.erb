@@ -1,0 +1,55 @@
+<div class="widget-body no-padding">
+  <%= simple_form_for :filter, { url: discipline_teaching_plans_path, method: :get, html: { class: 'filterable_search_form' } } do |f| %>
+    <div class="table-responsive">
+      <table id="resources" class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">
+              <%= f.input :by_grade, as: :select2, elements: @grades,
+                    label: false, placeholder: t('.by_grade') %>
+            </th>
+            <th scope="col" colspan="2">
+              <%= f.input :by_discipline, as: :select2, elements: @disciplines,
+                    label: false, placeholder: t('.by_discipline') %>
+            </th>
+            <th scope="col">
+              <%= f.input :by_school_term_type_id, as: :select2, elements: @school_term_type,
+                    label: false, placeholder: t('.by_school_term_type') %>
+            </th>
+            <th scope="col">
+              <%= f.input :by_school_term_type_step_id, as: :select2, elements: @school_term_type_step,
+                    label: false, placeholder: t('.by_school_term_type_step') %>
+            </th>
+            <th scope="col">
+              <%= f.input :by_author, as: :select2_plans, label: false %>
+            </th>
+            <th scope="col">
+              <%= link_to t('.new_html'), new_discipline_teaching_plan_path,
+                    class: 'btn btn-primary pull-right', style: 'width: 100%;' %>
+            </th>
+          </tr>
+
+          <tr>
+            <th scope="col"><%= TeachingPlan.human_attribute_name :unity %></th>
+            <th scope="col"><%= TeachingPlan.human_attribute_name :grade %></th>
+            <th scope="col"><%= DisciplineTeachingPlan.human_attribute_name :discipline %></th>
+            <th scope="col"><%= DisciplineTeachingPlan.human_attribute_name :thematic_unit %></th>
+            <th scope="col"><%= TeachingPlan.human_attribute_name :school_term_type %></th>
+            <th scope="col"><%= TeachingPlan.human_attribute_name :school_term_type_step %></th>
+            <th scope="col"><%= DisciplineTeachingPlan.human_attribute_name :author %></th>
+            <th scope="col" style="width: 230px"></th>
+          </tr>
+        </thead>
+
+        <%= render 'resources' %>
+
+        <tfoot id="paginator" class="remote">
+          <td id="pagination-tfoot" colspan="8">
+            <%= render 'shared/pagination', records: @discipline_teaching_plans %>
+          </td>
+        </tfoot>
+      </table>
+    </div>
+  <% end %>
+</div>

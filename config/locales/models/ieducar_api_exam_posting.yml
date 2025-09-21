@@ -1,0 +1,13 @@
+pt-BR:
+  ieducar_api_exam_postings:
+    index:
+      form:
+        resend_posting: "Aguarde 30min para repetir o envio"
+  activerecord:
+    models:
+      ieducar_api_synchronization:
+        one: "Sincronização com a API"
+        other: "Sincronizações com a API"
+  errors:
+    ieducar_api_exam_postings:
+      require_current_posting_step: "Para acessar esta funcionalidade é necessário estar em um período de envio de avaliações"

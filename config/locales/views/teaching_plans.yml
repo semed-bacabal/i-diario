@@ -1,0 +1,16 @@
+pt-BR:
+  teaching_plans:
+    index:
+      new_html: "<i class='fa fa-plus'></i> Novo plano de ensino"
+      by_year: "Filtrar ano"
+      by_unity_id: "Filtrar escola"
+      by_classroom_id: "Filtrar turma"
+      by_discipline_id: "Filtrar disciplina"
+      by_school_term_type: "Filtrar tipo de período escolar"
+    form:
+      additional_information: "Informações adicionais"
+    fields:
+      add_attachment: "Adicionar anexo"
+    infos:
+      copy_plan_info_title: "Tipo de período escolar:"
+      copy_plan_info_description: "A cópia do Plano de ensino ao registrar um Plano de aula será possível somente se este for registrado com o mesmo período utilizado na unidade escolar ou anual."

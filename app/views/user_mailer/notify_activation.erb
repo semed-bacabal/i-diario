@@ -1,0 +1,12 @@
+<p>
+  Olá <%= @user_name %>,
+</p>
+
+<p>
+  Sua conta de acesso com o usuário "<%= @user_logged_as %>" foi ativada com sucesso.
+  Para acessar o sistema, <%= link_to 'clique aqui', root_url(host: @domain) %>.
+</p>
+
+<p>
+Este email foi enviado automaticamente, favor não responder.
+</p>

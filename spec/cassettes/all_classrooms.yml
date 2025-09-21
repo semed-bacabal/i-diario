@@ -1,0 +1,777 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2015&instituicao_id=1&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 14 Apr 2015 18:23:37 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - PHPSESSID=fcotfs999h8069fb39rcats8t5; expires=Wed, 15-Apr-2015 18:23:37 GMT;
+        path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: US-ASCII
+      string: '{"turmas":[{"id":"4230","nome":"Ber\u00e7\u00e1rio I","escola_id":"1"},{"id":"4229","nome":"Ber\u00e7\u00e1rio
+        II","escola_id":"1"},{"id":"4227","nome":"Ber\u00e7\u00e1rio III","escola_id":"1"},{"id":"4228","nome":"Maternal
+        I","escola_id":"1"},{"id":"4224","nome":"Maternal II","escola_id":"1"},{"id":"4225","nome":"N\u00edvel
+        I-1","escola_id":"1"},{"id":"4226","nome":"N\u00edvel I-2","escola_id":"1"},{"id":"4223","nome":"N\u00edvel
+        II-1","escola_id":"1"},{"id":"4222","nome":"N\u00edvel II-2","escola_id":"1"},{"id":"4050","nome":"1\u00ba
+        Ano 1","escola_id":"98370"},{"id":"4051","nome":"1\u00ba Ano 2","escola_id":"98370"},{"id":"4052","nome":"2\u00ba
+        Ano 1","escola_id":"98370"},{"id":"4053","nome":"2\u00ba Ano 2","escola_id":"98370"},{"id":"4046","nome":"2\u00ba
+        Ano 3","escola_id":"98370"},{"id":"4054","nome":"3\u00ba Ano 1","escola_id":"98370"},{"id":"4055","nome":"3\u00ba
+        Ano 2","escola_id":"98370"},{"id":"4047","nome":"3\u00ba Ano 3","escola_id":"98370"},{"id":"4056","nome":"4\u00ba
+        Ano 1","escola_id":"98370"},{"id":"4058","nome":"4\u00ba Ano 2","escola_id":"98370"},{"id":"4057","nome":"4\u00ba
+        ano 3","escola_id":"98370"},{"id":"4059","nome":"5\u00ba ano 1","escola_id":"98370"},{"id":"4061","nome":"5\u00ba
+        ano 2","escola_id":"98370"},{"id":"4060","nome":"5\u00ba ano 3","escola_id":"98370"},{"id":"4274","nome":"Nivel
+        III","escola_id":"98370"},{"id":"4049","nome":"Pr\u00e9-escolar I","escola_id":"98370"},{"id":"4048","nome":"Pr\u00e9-escolar
+        II","escola_id":"98370"},{"id":"4032","nome":"1\u00ba Ano 1","escola_id":"98450"},{"id":"4033","nome":"2\u00ba
+        Ano 1","escola_id":"98450"},{"id":"4034","nome":"3\u00ba Ano 1","escola_id":"98450"},{"id":"4035","nome":"4\u00ba
+        Ano 1","escola_id":"98450"},{"id":"4036","nome":"5\u00ba Ano 1","escola_id":"98450"},{"id":"4037","nome":"PR\u00c9","escola_id":"98450"},{"id":"4194","nome":"1\u00ba
+        Ano 1","escola_id":"98647"},{"id":"4190","nome":"1\u00ba Ano 2","escola_id":"98647"},{"id":"4191","nome":"2\u00ba
+        Ano 1","escola_id":"98647"},{"id":"4195","nome":"2\u00ba Ano 2","escola_id":"98647"},{"id":"4196","nome":"3\u00ba
+        Ano 1","escola_id":"98647"},{"id":"4197","nome":"3\u00ba Ano 2","escola_id":"98647"},{"id":"4199","nome":"4\u00ba
+        Ano 2","escola_id":"98647"},{"id":"4200","nome":"5\u00ba Ano 1","escola_id":"98647"},{"id":"4201","nome":"5\u00ba
+        Ano 2","escola_id":"98647"},{"id":"4202","nome":"6\u00ba Ano 1","escola_id":"98647"},{"id":"4203","nome":"6\u00ba
+        Ano 2","escola_id":"98647"},{"id":"4373","nome":"6\u00ba Ano 3","escola_id":"98647"},{"id":"4192","nome":"7\u00ba
+        Ano 1","escola_id":"98647"},{"id":"4193","nome":"7\u00ba Ano 2","escola_id":"98647"},{"id":"4204","nome":"8\u00ba
+        Ano 1","escola_id":"98647"},{"id":"4189","nome":"8\u00ba Ano 2","escola_id":"98647"},{"id":"4205","nome":"9\u00ba
+        Ano 1","escola_id":"98647"},{"id":"4207","nome":"9\u00ba Ano 2","escola_id":"98647"},{"id":"4342","nome":"N\u00edvel
+        III - Integral","escola_id":"98647"},{"id":"4343","nome":"Pr\u00e9 - Integral","escola_id":"98647"},{"id":"4378","nome":"6\u00ba
+        Ano 1","escola_id":"98671"},{"id":"4379","nome":"6\u00ba Ano 2","escola_id":"98671"},{"id":"4380","nome":"6\u00ba
+        Ano 3","escola_id":"98671"},{"id":"4381","nome":"6\u00ba Ano 4","escola_id":"98671"},{"id":"4382","nome":"7\u00ba
+        Ano 1","escola_id":"98671"},{"id":"4383","nome":"7\u00ba Ano 2","escola_id":"98671"},{"id":"4384","nome":"7\u00ba
+        Ano 3","escola_id":"98671"},{"id":"4385","nome":"7\u00ba Ano 4","escola_id":"98671"},{"id":"4386","nome":"8\u00ba
+        Ano 1","escola_id":"98671"},{"id":"4387","nome":"8\u00ba Ano 2","escola_id":"98671"},{"id":"4388","nome":"8\u00ba
+        Ano 3","escola_id":"98671"},{"id":"4389","nome":"8\u00ba Ano 4","escola_id":"98671"},{"id":"4374","nome":"9\u00ba
+        Ano 1","escola_id":"98671"},{"id":"4375","nome":"9\u00ba Ano 2","escola_id":"98671"},{"id":"4376","nome":"9\u00ba
+        Ano 3","escola_id":"98671"},{"id":"4391","nome":"9\u00b0Ano 5","escola_id":"98671"},{"id":"4173","nome":"1\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4166","nome":"1\u00ba Ano 2","escola_id":"98680"},{"id":"4174","nome":"1\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4175","nome":"1\u00ba Ano 4","escola_id":"98680"},{"id":"4186","nome":"2\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4187","nome":"2\u00ba Ano 2","escola_id":"98680"},{"id":"4176","nome":"2\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4156","nome":"2\u00ba Ano 4","escola_id":"98680"},{"id":"4158","nome":"3\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4188","nome":"3\u00ba Ano 2","escola_id":"98680"},{"id":"4184","nome":"3\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4185","nome":"3\u00ba Ano 4","escola_id":"98680"},{"id":"4159","nome":"4\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4160","nome":"4\u00ba Ano 2","escola_id":"98680"},{"id":"4149","nome":"4\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4151","nome":"4\u00ba ano 4","escola_id":"98680"},{"id":"4161","nome":"5\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4162","nome":"5\u00ba Ano 2","escola_id":"98680"},{"id":"4157","nome":"5\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4153","nome":"5\u00ba ano 4","escola_id":"98680"},{"id":"4172","nome":"6\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4163","nome":"6\u00ba Ano 2","escola_id":"98680"},{"id":"4177","nome":"6\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4257","nome":"6\u00ba ANO 4","escola_id":"98680"},{"id":"4164","nome":"7\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4170","nome":"7\u00ba Ano 2","escola_id":"98680"},{"id":"4178","nome":"7\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4165","nome":"8\u00ba Ano 1","escola_id":"98680"},{"id":"4171","nome":"8\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4181","nome":"8\u00ba Ano 3","escola_id":"98680"},{"id":"4180","nome":"8\u00ba
+        Ano 4","escola_id":"98680"},{"id":"4167","nome":"9\u00ba Ano 1","escola_id":"98680"},{"id":"4168","nome":"9\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4169","nome":"9\u00ba Ano 3","escola_id":"98680"},{"id":"4182","nome":"9\u00ba
+        Ano 4","escola_id":"98680"},{"id":"4306","nome":"1\u00ba Ano 1","escola_id":"98698"},{"id":"4308","nome":"2\u00ba
+        Ano 1","escola_id":"98698"},{"id":"4307","nome":"3\u00ba Ano 1","escola_id":"98698"},{"id":"4304","nome":"4\u00ba
+        Ano 1","escola_id":"98698"},{"id":"4305","nome":"5\u00ba Ano 1","escola_id":"98698"},{"id":"4111","nome":"1\u00ba
+        Ano 1","escola_id":"98701"},{"id":"4110","nome":"1\u00ba Ano 2","escola_id":"98701"},{"id":"4120","nome":"1\u00ba
+        Ano 3","escola_id":"98701"},{"id":"4118","nome":"2\u00ba Ano 1","escola_id":"98701"},{"id":"4112","nome":"2\u00ba
+        Ano 2","escola_id":"98701"},{"id":"4125","nome":"2\u00ba ano 3","escola_id":"98701"},{"id":"4124","nome":"3\u00ba
+        Ano 1","escola_id":"98701"},{"id":"4122","nome":"3\u00ba Ano 2","escola_id":"98701"},{"id":"4282","nome":"3
+        ano 3","escola_id":"98701"},{"id":"4123","nome":"4\u00ba Ano 1","escola_id":"98701"},{"id":"4119","nome":"4\u00ba
+        Ano 2","escola_id":"98701"},{"id":"4392","nome":"4 ano 3","escola_id":"98701"},{"id":"4121","nome":"5\u00ba
+        Ano 1","escola_id":"98701"},{"id":"4113","nome":"5\u00ba Ano 2","escola_id":"98701"},{"id":"4126","nome":"6\u00ba
+        Ano 1","escola_id":"98701"},{"id":"4127","nome":"6\u00ba Ano 2","escola_id":"98701"},{"id":"4129","nome":"6\u00ba
+        Ano 3","escola_id":"98701"},{"id":"4114","nome":"7\u00ba Ano 1","escola_id":"98701"},{"id":"4115","nome":"7\u00ba
+        Ano 2","escola_id":"98701"},{"id":"4133","nome":"7\u00ba Ano 3","escola_id":"98701"},{"id":"4135","nome":"8\u00ba
+        Ano 1","escola_id":"98701"},{"id":"4132","nome":"8\u00ba Ano 2","escola_id":"98701"},{"id":"4117","nome":"9\u00ba
+        Ano 1","escola_id":"98701"},{"id":"4116","nome":"9\u00ba Ano 2","escola_id":"98701"},{"id":"4134","nome":"9\u00ba
+        Ano 3","escola_id":"98701"},{"id":"4130","nome":"Pr\u00e9 Escolar I","escola_id":"98701"},{"id":"4131","nome":"Pr\u00e9
+        Escolar II","escola_id":"98701"},{"id":"4088","nome":"1\u00ba Ano 1","escola_id":"98710"},{"id":"4099","nome":"1\u00ba
+        Ano 2","escola_id":"98710"},{"id":"4089","nome":"2\u00ba Ano 1","escola_id":"98710"},{"id":"4100","nome":"2\u00ba
+        Ano 2","escola_id":"98710"},{"id":"4090","nome":"3\u00ba Ano 1","escola_id":"98710"},{"id":"4098","nome":"3\u00ba
+        Ano 2","escola_id":"98710"},{"id":"4097","nome":"3\u00ba Ano 3","escola_id":"98710"},{"id":"4091","nome":"4\u00ba
+        Ano 1","escola_id":"98710"},{"id":"4101","nome":"4\u00ba Ano 2","escola_id":"98710"},{"id":"4092","nome":"5\u00ba
+        Ano 1","escola_id":"98710"},{"id":"4102","nome":"5\u00ba Ano 2","escola_id":"98710"},{"id":"4093","nome":"6\u00ba
+        Ano 1","escola_id":"98710"},{"id":"4103","nome":"6\u00ba Ano 2","escola_id":"98710"},{"id":"4094","nome":"7\u00ba
+        Ano 1","escola_id":"98710"},{"id":"4095","nome":"8\u00ba Ano 1","escola_id":"98710"},{"id":"4104","nome":"8\u00ba
+        Ano 2","escola_id":"98710"},{"id":"4096","nome":"9\u00ba Ano 1","escola_id":"98710"},{"id":"4105","nome":"9\u00ba
+        Ano 2","escola_id":"98710"},{"id":"4106","nome":"N\u00edvel 3 Mat.","escola_id":"98710"},{"id":"4107","nome":"N\u00edvel
+        3 Vesp","escola_id":"98710"},{"id":"4109","nome":"Pr\u00e9  2","escola_id":"98710"},{"id":"4108","nome":"Pr\u00e9
+        1","escola_id":"98710"},{"id":"4142","nome":"1\u00ba Ano 1","escola_id":"105392"},{"id":"4147","nome":"2\u00ba
+        Ano 1","escola_id":"105392"},{"id":"4148","nome":"3\u00ba Ano 1","escola_id":"105392"},{"id":"4143","nome":"4\u00ba
+        Ano 1","escola_id":"105392"},{"id":"4144","nome":"5\u00ba Ano 1","escola_id":"105392"},{"id":"4145","nome":"N\u00edvel
+        III","escola_id":"105392"},{"id":"4146","nome":"Pr\u00e9-escola","escola_id":"105392"},{"id":"4327","nome":"1\u00ba
+        Ano 1","escola_id":"109894"},{"id":"4332","nome":"2\u00ba Ano 1","escola_id":"109894"},{"id":"4338","nome":"3\u00ba
+        Ano 1","escola_id":"109894"},{"id":"4339","nome":"4\u00ba Ano 1","escola_id":"109894"},{"id":"4334","nome":"5\u00ba
+        Ano 1","escola_id":"109894"},{"id":"4328","nome":"5\u00ba Ano 2","escola_id":"109894"},{"id":"4335","nome":"6\u00ba
+        Ano 1","escola_id":"109894"},{"id":"4336","nome":"7\u00ba Ano 1","escola_id":"109894"},{"id":"4337","nome":"8\u00ba
+        Ano 1","escola_id":"109894"},{"id":"4330","nome":"8\u00ba Ano 2","escola_id":"109894"},{"id":"4331","nome":"9\u00ba
+        Ano 1","escola_id":"109894"},{"id":"4341","nome":"9\u00ba Ano 2","escola_id":"109894"},{"id":"4340","nome":"Pr\u00e9
+        ","escola_id":"109894"},{"id":"4017","nome":"1\u00ba  ano 1","escola_id":"115770"},{"id":"4018","nome":"1\u00ba
+        Ano 1","escola_id":"115770"},{"id":"4027","nome":"1\u00ba Ano 2","escola_id":"115770"},{"id":"4019","nome":"2\u00ba
+        Ano 1","escola_id":"115770"},{"id":"4020","nome":"2\u00ba Ano 2","escola_id":"115770"},{"id":"4021","nome":"3\u00ba
+        Ano 1","escola_id":"115770"},{"id":"4022","nome":"3\u00ba Ano 2","escola_id":"115770"},{"id":"4023","nome":"4\u00ba
+        Ano 1","escola_id":"115770"},{"id":"4024","nome":"4\u00ba Ano 2","escola_id":"115770"},{"id":"4026","nome":"5\u00ba
+        Ano 1","escola_id":"115770"},{"id":"4025","nome":"5\u00ba ano 2","escola_id":"115770"},{"id":"4016","nome":"5\u00aa
+        S\u00e9rie 1","escola_id":"115770"},{"id":"4030","nome":"AEE","escola_id":"115770"},{"id":"4028","nome":"Pr\u00e9
+        1","escola_id":"115770"},{"id":"4029","nome":"Pr\u00e9 2","escola_id":"115770"},{"id":"4279","nome":"1\u00ba
+        Ano 1","escola_id":"115789"},{"id":"4277","nome":"2\u00ba Ano 1","escola_id":"115789"},{"id":"4278","nome":"3\u00ba
+        Ano 1","escola_id":"115789"},{"id":"4280","nome":"4\u00ba Ano 1","escola_id":"115789"},{"id":"4281","nome":"5\u00ba
+        Ano 1","escola_id":"115789"},{"id":"4275","nome":"N\u00edvel III","escola_id":"115789"},{"id":"4276","nome":"Pr\u00e9-escolar","escola_id":"115789"},{"id":"4252","nome":"1\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4231","nome":"1\u00ba ano 2","escola_id":"124370"},{"id":"4256","nome":"2\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4250","nome":"2\u00ba Ano 2","escola_id":"124370"},{"id":"4251","nome":"3\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4232","nome":"3\u00ba Ano 2","escola_id":"124370"},{"id":"4233","nome":"4\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4234","nome":"4\u00ba Ano 2","escola_id":"124370"},{"id":"4235","nome":"5\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4236","nome":"5\u00ba Ano 2","escola_id":"124370"},{"id":"4244","nome":"6\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4245","nome":"6\u00ba Ano 2","escola_id":"124370"},{"id":"4258","nome":"6\u00baano3","escola_id":"124370"},{"id":"4243","nome":"7\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4237","nome":"7\u00ba Ano 2","escola_id":"124370"},{"id":"4239","nome":"8\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4240","nome":"8\u00ba Ano 2","escola_id":"124370"},{"id":"4246","nome":"9\u00ba
+        Ano 1","escola_id":"124370"},{"id":"4247","nome":"9\u00ba Ano 2","escola_id":"124370"},{"id":"4248","nome":"N\u00edvel
+        III- Integral","escola_id":"124370"},{"id":"4393","nome":"n\u00edvel III-vesp.","escola_id":"124370"},{"id":"4254","nome":"Pr\u00e9
+        1","escola_id":"124370"},{"id":"4255","nome":"Pr\u00e9 int.","escola_id":"124370"},{"id":"4071","nome":"1\u00ba
+        Ano 1","escola_id":"126969"},{"id":"4082","nome":"1\u00ba Ano 2","escola_id":"126969"},{"id":"4365","nome":"1\u00ba
+        Ano 3","escola_id":"126969"},{"id":"4072","nome":"2\u00ba Ano 1","escola_id":"126969"},{"id":"4080","nome":"2\u00ba
+        Ano 2","escola_id":"126969"},{"id":"4081","nome":"2\u00ba Ano 3","escola_id":"126969"},{"id":"4073","nome":"3\u00ba
+        Ano 1","escola_id":"126969"},{"id":"4078","nome":"3\u00ba Ano 2","escola_id":"126969"},{"id":"4364","nome":"3\u00ba
+        Ano 3","escola_id":"126969"},{"id":"4070","nome":"4\u00ba Ano 1","escola_id":"126969"},{"id":"4079","nome":"4\u00ba
+        Ano 2","escola_id":"126969"},{"id":"4077","nome":"4\u00ba Ano 3","escola_id":"126969"},{"id":"4074","nome":"5\u00ba
+        Ano 1","escola_id":"126969"},{"id":"4075","nome":"5\u00ba Ano 2","escola_id":"126969"},{"id":"4076","nome":"5\u00ba
+        Ano 3","escola_id":"126969"},{"id":"4086","nome":"NIVEL III 1","escola_id":"126969"},{"id":"4083","nome":"NIVEL
+        III 2","escola_id":"126969"},{"id":"4084","nome":"PR\u00c9 \"1\"","escola_id":"126969"},{"id":"4085","nome":"PR\u00c9
+        \"2\"","escola_id":"126969"},{"id":"4087","nome":"PR\u00c9 \"3\"","escola_id":"126969"},{"id":"4288","nome":"1
+        \u00ba ANO MATUTINO","escola_id":"139637"},{"id":"4289","nome":"1 \u00ba ANO
+        VESPERTINO","escola_id":"139637"},{"id":"4267","nome":"1\u00ba Ano 1","escola_id":"139637"},{"id":"4264","nome":"1\u00ba
+        Ano 2","escola_id":"139637"},{"id":"4290","nome":"2 \u00ba ANO MATUTINO","escola_id":"139637"},{"id":"4291","nome":"2
+        \u00ba ANO VESPERTINO","escola_id":"139637"},{"id":"4268","nome":"2\u00ba
+        Ano 1","escola_id":"139637"},{"id":"4263","nome":"2\u00ba Ano 2","escola_id":"139637"},{"id":"4292","nome":"3
+        \u00ba ANO MATUTINO","escola_id":"139637"},{"id":"4293","nome":"3 \u00ba ANO
+        VESPERTINO","escola_id":"139637"},{"id":"4269","nome":"3\u00ba Ano 1","escola_id":"139637"},{"id":"4262","nome":"3\u00ba
+        Ano 2","escola_id":"139637"},{"id":"4294","nome":"4 \u00ba ANO MATUTINO","escola_id":"139637"},{"id":"4295","nome":"4
+        \u00ba ANO VESPERTINO","escola_id":"139637"},{"id":"4270","nome":"4\u00ba
+        Ano 1","escola_id":"139637"},{"id":"4265","nome":"4\u00ba Ano 2","escola_id":"139637"},{"id":"4296","nome":"5
+        \u00ba ANO MATUTINO","escola_id":"139637"},{"id":"4297","nome":"5 \u00ba ANO
+        VESPERTINO","escola_id":"139637"},{"id":"4259","nome":"5\u00b0 Ano 1","escola_id":"139637"},{"id":"4271","nome":"5\u00ba
+        Ano 1","escola_id":"139637"},{"id":"4273","nome":"5\u00b0 Ano 2","escola_id":"139637"},{"id":"4266","nome":"5\u00ba
+        Ano 2","escola_id":"139637"},{"id":"4272","nome":"5\u00b0 Ano 3","escola_id":"139637"},{"id":"4261","nome":"6\u00b0
+        Ano 1","escola_id":"139637"},{"id":"4260","nome":"6\u00b0 Ano 2","escola_id":"139637"},{"id":"4283","nome":"N\u00cdVEL
+        III INTEGRAL","escola_id":"139637"},{"id":"4284","nome":"N\u00cdVEL III VESPERTINO","escola_id":"139637"},{"id":"4285","nome":"PR\u00c9
+        ESCOLA INTEGRAL","escola_id":"139637"},{"id":"4286","nome":"PR\u00c9 ESCOLA
+        MATUTINO","escola_id":"139637"},{"id":"4287","nome":"PR\u00c9 ESCOLA VESPERTINO","escola_id":"139637"},{"id":"4502","nome":"Alfabetiza\u00e7\u00e3o
+        - Stella - 2015","escola_id":"703010"},{"id":"4482","nome":"Artes - Dilma
+        1 - 2015","escola_id":"703010"},{"id":"4485","nome":"Artes - Dilma 2 - 2015","escola_id":"703010"},{"id":"4486","nome":"Ci\u00eancias
+        - Rosane 1 - 2015","escola_id":"703010"},{"id":"4489","nome":"Ci\u00eancias
+        - Rosane 2 - 2015","escola_id":"703010"},{"id":"4492","nome":"Ci\u00eancias
+        - Rosane 3 - 2015","escola_id":"703010"},{"id":"4493","nome":"Ci\u00eancias
+        - Rosane 4 - 2015","escola_id":"703010"},{"id":"4494","nome":"Ci\u00eancias
+        - Rosane 5 - 2015","escola_id":"703010"},{"id":"4460","nome":"Cremilda - Portugu\u00eas
+        2","escola_id":"703010"},{"id":"4431","nome":"Cremilda - Portugu\u00eas 4","escola_id":"703010"},{"id":"4427","nome":"Cremilda
+        3 - Portugu\u00eas","escola_id":"703010"},{"id":"4400","nome":"Cremilda II
+        - Portugu\u00eas","escola_id":"703010"},{"id":"4401","nome":"Cremilda II -
+        Portugu\u00eas","escola_id":"703010"},{"id":"4462","nome":"Dilma - Artes","escola_id":"703010"},{"id":"4424","nome":"Dilma
+        - Artes 3","escola_id":"703010"},{"id":"4470","nome":"Dilma - Artes 4","escola_id":"703010"},{"id":"4408","nome":"Dilma
+        - Artes I","escola_id":"703010"},{"id":"4429","nome":"Dilma - Artes2","escola_id":"703010"},{"id":"4515","nome":"Domingos
+        de Carvalho - Matem\u00e1tica - Solange - 2015","escola_id":"703010"},{"id":"4407","nome":"Elvis
+        (INGL\u00caS)","escola_id":"703010"},{"id":"4405","nome":"Elvys - Ingl\u00eas","escola_id":"703010"},{"id":"4446","nome":"Elvys
+        - Ingl\u00eas 2","escola_id":"703010"},{"id":"4432","nome":"Elvys - Ingl\u00eas
+        2","escola_id":"703010"},{"id":"4500","nome":"Frederico Lampe - Portugu\u00eas
+        - Cremilda 2015","escola_id":"703010"},{"id":"4487","nome":"Geografia - Raquel
+        1 - 2015","escola_id":"703010"},{"id":"4475","nome":"Geografia - Raquel 2","escola_id":"703010"},{"id":"4490","nome":"Geografia
+        - Raquel 2 - 2015","escola_id":"703010"},{"id":"4474","nome":"Hist\u00f3ria
+        - Tamiln 2","escola_id":"703010"},{"id":"4497","nome":"Hist\u00f3ria 1 - Marli
+        - 2015","escola_id":"703010"},{"id":"4506","nome":"Hist\u00f3ria 2 - Marli
+        - 2015","escola_id":"703010"},{"id":"4479","nome":"Ingl\u00eas - Cremilda
+        I","escola_id":"703010"},{"id":"4472","nome":"Ingl\u00eas - Elvys 2","escola_id":"703010"},{"id":"4473","nome":"Ingl\u00eas
+        - Elvys 3","escola_id":"703010"},{"id":"4484","nome":"Ingl\u00eas - Josiane
+        1 - 2015","escola_id":"703010"},{"id":"4476","nome":"Ingl\u00eas - Leci 2","escola_id":"703010"},{"id":"4412","nome":"Ingl\u00eas
+        - Vera - Polo Frederico Lampe","escola_id":"703010"},{"id":"4421","nome":"Ingl\u00eas
+        - Vera - Rio Feio","escola_id":"703010"},{"id":"4495","nome":"Ingl\u00eas-
+        Josiane 2 - 2015","escola_id":"703010"},{"id":"4450","nome":"Leci - Ingl\u00eas
+        2","escola_id":"703010"},{"id":"4441","nome":"Leci - Portugu\u00eas","escola_id":"703010"},{"id":"4455","nome":"Leci
+        - Portugu\u00eas 2","escola_id":"703010"},{"id":"4433","nome":"Marcelino -
+        Ci\u00eancias","escola_id":"703010"},{"id":"4402","nome":"Marcelino - Ci\u00eancias","escola_id":"703010"},{"id":"4399","nome":"Marcelino
+        - Ci\u00eancias","escola_id":"703010"},{"id":"4471","nome":"Marcelino - Ci\u00eancias","escola_id":"703010"},{"id":"4449","nome":"Marcelino
+        - Ci\u00eancias II","escola_id":"703010"},{"id":"4398","nome":"Marli - Hist\u00f3ria","escola_id":"703010"},{"id":"4411","nome":"Marli
+        - Hist\u00f3ria","escola_id":"703010"},{"id":"4468","nome":"Matem\u00e1tica
+        - Solange - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4425","nome":"Nevinha
+        - Matem\u00e1tica","escola_id":"703010"},{"id":"4459","nome":"Nevinha - Matem\u00e1tica
+        2","escola_id":"703010"},{"id":"4503","nome":"Nivelamento - Stella - 2015","escola_id":"703010"},{"id":"4504","nome":"Patrim\u00f4nio
+        do Salto - Hist\u00f3ria - Marli - 2015","escola_id":"703010"},{"id":"4501","nome":"Patrim\u00f4nio
+        do Salto - Ingl\u00eas - Leci 2015","escola_id":"703010"},{"id":"4514","nome":"Patrim\u00f4nio
+        do Salto - Leci 2 - Ingl\u00eas - 2015","escola_id":"703010"},{"id":"4505","nome":"Patrim\u00f4nio
+        do Salto 2 - Hist\u00f3ria - Marli - 2015","escola_id":"703010"},{"id":"4488","nome":"Portugu\u00eas
+        - Cremilda 1 - 2015","escola_id":"703010"},{"id":"4483","nome":"Portugu\u00eas
+        - Leci 1 - 2015","escola_id":"703010"},{"id":"4491","nome":"Portugu\u00eas
+        - Leci 2 - 2015","escola_id":"703010"},{"id":"4451","nome":"Raquel - Geografia","escola_id":"703010"},{"id":"4406","nome":"Raquel
+        - Geografia","escola_id":"703010"},{"id":"4416","nome":"Raquel - Geografia
+        - Ass Norilda","escola_id":"703010"},{"id":"4440","nome":"Raquel - Geografia
+        - Ass Norilda","escola_id":"703010"},{"id":"4467","nome":"Raquel - Geografia
+        - Assentamento Norilda da Cruz","escola_id":"703010"},{"id":"4439","nome":"Raquel
+        - Geografia - Serro Azul","escola_id":"703010"},{"id":"4438","nome":"Raquel
+        - Geografia - Serro Azul","escola_id":"703010"},{"id":"4469","nome":"Raquel
+        - Geografia - Serro Azul","escola_id":"703010"},{"id":"4452","nome":"Raquel
+        - Geografia 2","escola_id":"703010"},{"id":"4418","nome":"Rosane - Ci\u00eancias
+        - Domingos de Carvalho","escola_id":"703010"},{"id":"4435","nome":"Rosane
+        - Ci\u00eancias - Domingos de Carvalho","escola_id":"703010"},{"id":"4434","nome":"Rosane
+        - Ci\u00eancias - frederico lampe","escola_id":"703010"},{"id":"4417","nome":"Rosane
+        - Ci\u00eancias - Frederico Lampe","escola_id":"703010"},{"id":"4454","nome":"Rosane
+        - Ci\u00eancias - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4445","nome":"Rosane
+        - Ci\u00eancias - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4465","nome":"Rosane
+        - Ci\u00eancias - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4464","nome":"Rosane
+        - Ci\u00eancias - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4397","nome":"Rosane
+        - Ci\u00eancias - Volta Grande","escola_id":"703010"},{"id":"4461","nome":"Rosane
+        - Ci\u00eancias - Volta Grande","escola_id":"703010"},{"id":"4436","nome":"Rosane
+        - Ci\u00eancias - Volta Grande","escola_id":"703010"},{"id":"4463","nome":"Rosane-
+        Ci\u00eancias - Frederico Lampre","escola_id":"703010"},{"id":"4410","nome":"Samuel
+        - Hist\u00f3ria","escola_id":"703010"},{"id":"4409","nome":"Samuel - Hist\u00f3ria","escola_id":"703010"},{"id":"4499","nome":"Serro
+        Azul - Geografia - Raquel 2015","escola_id":"703010"},{"id":"4498","nome":"Serro
+        Azul - Matem\u00e1tica - Solange 2015","escola_id":"703010"},{"id":"4443","nome":"Solange
+        - Artes - Domingos de Carvalho","escola_id":"703010"},{"id":"4444","nome":"Solange
+        - Artes - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4437","nome":"Solange
+        - Matem\u00e1tica","escola_id":"703010"},{"id":"4419","nome":"Solange - Matem\u00e1tica","escola_id":"703010"},{"id":"4414","nome":"Solange
+        - Matem\u00e1tica - Pat Salto","escola_id":"703010"},{"id":"4442","nome":"Solange
+        - Matem\u00e1tica - Patrim\u00f4nio do Salto","escola_id":"703010"},{"id":"4415","nome":"Solange
+        - Matem\u00e1tica - Volta Grande","escola_id":"703010"},{"id":"4456","nome":"Solange
+        - Matem\u00e1tica 2","escola_id":"703010"},{"id":"4403","nome":"Stella (2\u00ba
+        e 3\u00ba alfabetiza\u00e7\u00e3o)","escola_id":"703010"},{"id":"4404","nome":"Stella
+        (4\u00ba e 5\u00ba Nivelamento)","escola_id":"703010"},{"id":"4430","nome":"Tamilin
+        - Hist\u00f3ria","escola_id":"703010"},{"id":"4428","nome":"Tamilin - Hist\u00f3ria","escola_id":"703010"},{"id":"4477","nome":"Tamilin
+        - Hist\u00f3ria 2","escola_id":"703010"},{"id":"4457","nome":"Teste 1","escola_id":"703010"},{"id":"4420","nome":"Valdir
+        - Geografia","escola_id":"703010"},{"id":"4447","nome":"VALDIR - GEOGRAFIA","escola_id":"703010"},{"id":"4396","nome":"Valdir
+        - Geografia - Frederico Lampe","escola_id":"703010"},{"id":"4466","nome":"Valdir
+        - Geografia - Frederico Lampe","escola_id":"703010"},{"id":"4448","nome":"Valdir
+        - Geografia - Frederico Lampe","escola_id":"703010"},{"id":"4458","nome":"Valdir
+        - Geografia 2","escola_id":"703010"},{"id":"4422","nome":"Vera - Ingl\u00eas
+        - Frederico Lampe","escola_id":"703010"},{"id":"4413","nome":"Vera - Ingl\u00eas
+        - Serro Azul","escola_id":"703010"},{"id":"4423","nome":"Vera - Ingl\u00eas
+        - Serro Azul","escola_id":"703010"},{"id":"4478","nome":"Vera - Portugu\u00eas
+        - Frederico Lampe","escola_id":"703010"},{"id":"4453","nome":"Vera - Portugu\u00eas
+        - Frederico Lampe ","escola_id":"703010"},{"id":"4426","nome":"Vera - Portugu\u00eas
+        - Volta Grande","escola_id":"703010"},{"id":"4220","nome":"Ber\u00e7\u00e1rio
+        ","escola_id":"703011"},{"id":"4219","nome":"Maternal I ","escola_id":"703011"},{"id":"4221","nome":"Maternal
+        II ","escola_id":"703011"},{"id":"4217","nome":"N\u00edvel III (Matutino)","escola_id":"703011"},{"id":"4218","nome":"N\u00edvel
+        III (Vespertino)","escola_id":"703011"},{"id":"4209","nome":"N\u00edvel III
+        1","escola_id":"703012"},{"id":"4210","nome":"N\u00edvel III 2","escola_id":"703012"},{"id":"4366","nome":"N\u00edvel
+        III 3","escola_id":"703012"},{"id":"4211","nome":"Pr\u00e9-escola 1","escola_id":"703012"},{"id":"4212","nome":"Pr\u00e9-escola
+        2","escola_id":"703012"},{"id":"4215","nome":"N\u00edvel I A","escola_id":"703013"},{"id":"4216","nome":"N\u00edvel
+        I B","escola_id":"703013"},{"id":"4213","nome":"N\u00edvel II A ","escola_id":"703013"},{"id":"4214","nome":"N\u00edvel
+        II B ","escola_id":"703013"},{"id":"4298","nome":"MATERNAL I","escola_id":"703014"},{"id":"4299","nome":"MATERNAL
+        II","escola_id":"703014"},{"id":"4300","nome":"NIVEL I- 1","escola_id":"703014"},{"id":"4303","nome":"NIVEL
+        I- 2","escola_id":"703014"},{"id":"4301","nome":"NIVEL II- 1","escola_id":"703014"},{"id":"4302","nome":"NIVEL
+        II- 2","escola_id":"703014"},{"id":"4011","nome":"Ber\u00e7\u00e1rio","escola_id":"703015"},{"id":"4012","nome":"Maternal
+        1","escola_id":"703015"},{"id":"4013","nome":"Maternal 2","escola_id":"703015"},{"id":"4014","nome":"N\u00edvel
+        I - 1","escola_id":"703015"},{"id":"4015","nome":"N\u00edvel I - 2","escola_id":"703015"},{"id":"4318","nome":"Ber\u00e7\u00e1rio
+        1","escola_id":"703016"},{"id":"4313","nome":"Ber\u00e7\u00e1rio 2","escola_id":"703016"},{"id":"4314","nome":"Maternal
+        1","escola_id":"703016"},{"id":"4315","nome":"Maternal 2","escola_id":"703016"},{"id":"4324","nome":"Maternal
+        3","escola_id":"703016"},{"id":"4316","nome":"N\u00edvel I 1","escola_id":"703016"},{"id":"4319","nome":"N\u00edvel
+        I 2","escola_id":"703016"},{"id":"4320","nome":"N\u00edvel II 1","escola_id":"703016"},{"id":"4321","nome":"N\u00edvel
+        II 2","escola_id":"703016"},{"id":"4325","nome":"N\u00edvel II 3","escola_id":"703016"},{"id":"4507","nome":"2\u00aa
+        S\u00e9rie 1","escola_id":"703017"},{"id":"4508","nome":"2\u00aa S\u00e9rie
+        2","escola_id":"703017"},{"id":"4509","nome":"2\u00aa S\u00e9rie 3","escola_id":"703017"},{"id":"4513","nome":"BER\u00c7\u00c1RIO","escola_id":"703017"},{"id":"4512","nome":"Ber\u00e7\u00e1rio
+        I","escola_id":"703017"},{"id":"4510","nome":"Ber\u00e7\u00e1rio II","escola_id":"703017"},{"id":"4511","nome":"Ber\u00e7\u00e1rio
+        III","escola_id":"703017"},{"id":"4006","nome":"Maternal","escola_id":"703018"},{"id":"4005","nome":"N\u00edvel
+        I - 1","escola_id":"703018"},{"id":"4010","nome":"N\u00edvel I - 2","escola_id":"703018"},{"id":"4007","nome":"N\u00edvel
+        II - 1","escola_id":"703018"},{"id":"4363","nome":"BER\u00c7\u00c1RIO","escola_id":"703019"},{"id":"4360","nome":"MATERNAL
+        2015","escola_id":"703019"},{"id":"4362","nome":"N\u00cdVEL I 2015","escola_id":"703019"},{"id":"4361","nome":"N\u00cdVEL
+        II 2015","escola_id":"703019"},{"id":"4358","nome":"N\u00edvel III","escola_id":"703019"},{"id":"4359","nome":"PRE","escola_id":"703019"},{"id":"4367","nome":"Ber\u00e7\u00e1rio-A","escola_id":"703020"},{"id":"4368","nome":"Ber\u00e7\u00e1rio-B","escola_id":"703020"},{"id":"4372","nome":"Maternal-A","escola_id":"703020"},{"id":"4369","nome":"Maternal-B","escola_id":"703020"},{"id":"4370","nome":"N\u00edvel
+        I-A","escola_id":"703020"},{"id":"4371","nome":"N\u00edvel I-B","escola_id":"703020"},{"id":"4354","nome":"
+        N\u00edvel II-2","escola_id":"703021"},{"id":"4348","nome":"Maternal-1","escola_id":"703021"},{"id":"4346","nome":"Maternal-2","escola_id":"703021"},{"id":"4349","nome":"N\u00edvel
+        I-1","escola_id":"703021"},{"id":"4350","nome":"N\u00edvel I-2","escola_id":"703021"},{"id":"4351","nome":"N\u00edvel
+        I-3","escola_id":"703021"},{"id":"4352","nome":"N\u00edvel I-4","escola_id":"703021"},{"id":"4347","nome":"N\u00edvel
+        I-5","escola_id":"703021"},{"id":"4353","nome":"N\u00edvel II-1","escola_id":"703021"},{"id":"4356","nome":"N\u00edvel
+        II-3","escola_id":"703021"},{"id":"4355","nome":"N\u00edvel II-4","escola_id":"703021"},{"id":"4357","nome":"N\u00edvel
+        II-5","escola_id":"703021"},{"id":"4345","nome":"N\u00edvel III-2","escola_id":"703021"},{"id":"4045","nome":"4\u00aa
+        S\u00e9rie 1","escola_id":"703022"},{"id":"4038","nome":"4\u00aa S\u00e9rie
+        2","escola_id":"703022"},{"id":"4042","nome":"4\u00aa S\u00e9rie 3","escola_id":"703022"},{"id":"4039","nome":"5\u00aa
+        S\u00e9rie 1","escola_id":"703022"},{"id":"4040","nome":"5\u00aa S\u00e9rie
+        2","escola_id":"703022"},{"id":"4041","nome":"6\u00aa S\u00e9rie 1","escola_id":"703022"},{"id":"4043","nome":"6\u00aa
+        S\u00e9rie 2","escola_id":"703022"},{"id":"4062","nome":"N\u00edvel II - 1","escola_id":"703022"},{"id":"4063","nome":"N\u00edvel
+        II - 2","escola_id":"703022"},{"id":"4064","nome":"N\u00edvel II - 3","escola_id":"703022"},{"id":"4065","nome":"N\u00edvel
+        III - 1","escola_id":"703022"},{"id":"4066","nome":"N\u00edvel III - 2","escola_id":"703022"},{"id":"4067","nome":"N\u00edvel
+        III - 3","escola_id":"703022"},{"id":"4068","nome":"Pr\u00e9 escola matutino","escola_id":"703022"},{"id":"4069","nome":"Pr\u00e9
+        escola vespertino","escola_id":"703022"},{"id":"4044","nome":"Pr\u00e9-escola
+        extens\u00e3o Marta Tavares","escola_id":"703022"},{"id":"4001","nome":"N\u00edvel
+        III - 1","escola_id":"703023"},{"id":"3999","nome":"N\u00edvel III - 2","escola_id":"703023"},{"id":"3996","nome":"N\u00edvel
+        III - 3","escola_id":"703023"},{"id":"4002","nome":"Pr\u00e9 1 ","escola_id":"703023"},{"id":"3995","nome":"Pr\u00e9
+        2","escola_id":"703023"},{"id":"3998","nome":"Pr\u00e9 3","escola_id":"703023"},{"id":"3997","nome":"Pr\u00e9
+        4","escola_id":"703023"},{"id":"4000","nome":"Pr\u00e9 5","escola_id":"703023"},{"id":"4009","nome":"Pr\u00e9-Escola
+        1","escola_id":"703023"},{"id":"4309","nome":"Turma - 1","escola_id":"703025"},{"id":"4310","nome":"Turma
+        - 2","escola_id":"703025"},{"id":"4311","nome":"Turma - 3","escola_id":"703025"},{"id":"4312","nome":"Turma
+        - 4","escola_id":"703025"},{"id":"4136","nome":"BER\u00c7\u00c1RIO 2014","escola_id":"703028"},{"id":"4137","nome":"MATERNAL
+        2014","escola_id":"703028"},{"id":"4138","nome":"N\u00cdVEL I 2014","escola_id":"703028"},{"id":"4139","nome":"N\u00cdVEL
+        II 2014","escola_id":"703028"},{"id":"4140","nome":"N\u00cdVEL III MATUTINO
+        2014","escola_id":"703028"},{"id":"4141","nome":"N\u00cdVEL III VESPERTINO
+        2014","escola_id":"703028"}],"oper":"get","resource":"turmas-por-escola","msgs":[],"any_error_msg":false}'
+    http_version: 
+  recorded_at: Tue, 14 Apr 2015 18:23:38 GMT
+- request:
+    method: get
+    uri: http://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2016&instituicao_id=1&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 21 Jan 2016 19:20:21 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - PHPSESSID=gfq2q2ir3oe3flfvvhmpve6fs0; expires=Fri, 22-Jan-2016 19:20:21 GMT;
+        path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '3681'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"turmas":[{"id":"4643","nome":"1\u00ba Ano 1","escola_id":"98680"},{"id":"4636","nome":"1\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4644","nome":"1\u00ba Ano 3","escola_id":"98680"},{"id":"4645","nome":"1\u00ba
+        Ano 4","escola_id":"98680"},{"id":"4653","nome":"2\u00ba Ano 1","escola_id":"98680"},{"id":"4654","nome":"2\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4646","nome":"2\u00ba Ano 3","escola_id":"98680"},{"id":"4626","nome":"2\u00ba
+        Ano 4","escola_id":"98680"},{"id":"4628","nome":"3\u00ba Ano 1","escola_id":"98680"},{"id":"4656","nome":"3\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4652","nome":"3\u00ba Ano 3","escola_id":"98680"},{"id":"4655","nome":"3\u00ba
+        Ano 4","escola_id":"98680"},{"id":"4629","nome":"4\u00ba Ano 1","escola_id":"98680"},{"id":"4630","nome":"4\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4624","nome":"4\u00ba Ano 3","escola_id":"98680"},{"id":"4625","nome":"4\u00ba
+        ano 4","escola_id":"98680"},{"id":"4631","nome":"5\u00ba Ano 1","escola_id":"98680"},{"id":"4632","nome":"5\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4627","nome":"5\u00ba Ano 3","escola_id":"98680"},{"id":"4657","nome":"5\u00ba
+        ano 4","escola_id":"98680"},{"id":"4642","nome":"6\u00ba Ano 1","escola_id":"98680"},{"id":"4633","nome":"6\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4647","nome":"6\u00ba Ano 3","escola_id":"98680"},{"id":"4658","nome":"6\u00ba
+        ANO 4","escola_id":"98680"},{"id":"4634","nome":"7\u00ba Ano 1","escola_id":"98680"},{"id":"4640","nome":"7\u00ba
+        Ano 2","escola_id":"98680"},{"id":"4648","nome":"7\u00ba Ano 3","escola_id":"98680"},{"id":"4635","nome":"8\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4641","nome":"8\u00ba Ano 2","escola_id":"98680"},{"id":"4650","nome":"8\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4649","nome":"8\u00ba Ano 4","escola_id":"98680"},{"id":"4637","nome":"9\u00ba
+        Ano 1","escola_id":"98680"},{"id":"4638","nome":"9\u00ba Ano 2","escola_id":"98680"},{"id":"4639","nome":"9\u00ba
+        Ano 3","escola_id":"98680"},{"id":"4651","nome":"9\u00ba Ano 4","escola_id":"98680"},{"id":"4618","nome":"Ber\u00e7\u00e1rio
+        ","escola_id":"703011"},{"id":"4623","nome":"Ber\u00e7\u00e1rio II","escola_id":"703011"},{"id":"4621","nome":"Maternal
+        I ","escola_id":"703011"},{"id":"4622","nome":"Maternal II ","escola_id":"703011"},{"id":"4619","nome":"N\u00edvel
+        III (Matutino)","escola_id":"703011"},{"id":"4620","nome":"N\u00edvel III
+        (Vespertino)","escola_id":"703011"},{"id":"4671","nome":"N\u00edvel I A","escola_id":"703013"},{"id":"4674","nome":"N\u00edvel
+        I B","escola_id":"703013"},{"id":"4672","nome":"N\u00edvel II A ","escola_id":"703013"},{"id":"4673","nome":"N\u00edvel
+        II B ","escola_id":"703013"},{"id":"4616","nome":"Maternal - 1","escola_id":"703018"},{"id":"4613","nome":"N\u00edvel
+        I - 1","escola_id":"703018"},{"id":"4614","nome":"N\u00edvel II - 1","escola_id":"703018"},{"id":"4617","nome":"N\u00edvel
+        II - 2","escola_id":"703018"},{"id":"4663","nome":"N\u00edvel II - 1","escola_id":"703022"},{"id":"4664","nome":"N\u00edvel
+        II - 2","escola_id":"703022"},{"id":"4665","nome":"N\u00edvel II - 3","escola_id":"703022"},{"id":"4666","nome":"N\u00edvel
+        III - 1","escola_id":"703022"},{"id":"4667","nome":"N\u00edvel III - 2","escola_id":"703022"},{"id":"4668","nome":"N\u00edvel
+        III - 3","escola_id":"703022"},{"id":"4669","nome":"Pr\u00e9 escola matutino","escola_id":"703022"},{"id":"4670","nome":"Pr\u00e9
+        escola vespertino","escola_id":"703022"},{"id":"4659","nome":"Turma - 1","escola_id":"703025"},{"id":"4660","nome":"Turma
+        - 2","escola_id":"703025"},{"id":"4662","nome":"Turma - 3","escola_id":"703025"},{"id":"4661","nome":"Turma
+        - 4","escola_id":"703025"}],"oper":"get","resource":"turmas-por-escola","msgs":[],"any_error_msg":false}'
+    http_version: 
+  recorded_at: Thu, 21 Jan 2016 19:20:21 GMT
+- request:
+    method: get
+    uri: http://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2017&instituicao_id=1&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 04 Jan 2017 11:26:31 GMT
+      Server:
+      - Apache
+      Set-Cookie:
+      - PHPSESSID=kqibmvvj1c5t2q6jrkvrtgkju1; expires=Thu, 05-Jan-2017 11:26:31 GMT;
+        path=/
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+      Content-Length:
+      - '2300'
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"turmas":[{"id":"5182","nome":"1\u00ba Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5183","nome":"1\u00ba
+        ano 2","escola_id":"124370","turno_id":"2"},{"id":"5184","nome":"2\u00ba Ano
+        1","escola_id":"124370","turno_id":"1"},{"id":"5185","nome":"2\u00ba Ano 2","escola_id":"124370","turno_id":"2"},{"id":"5201","nome":"3\u00ba
+        Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5195","nome":"3\u00ba Ano
+        2","escola_id":"124370","turno_id":"2"},{"id":"5186","nome":"4\u00ba Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5187","nome":"4\u00ba
+        Ano 2","escola_id":"124370","turno_id":"2"},{"id":"5188","nome":"5\u00ba Ano
+        1","escola_id":"124370","turno_id":"1"},{"id":"5180","nome":"5\u00ba Ano 2","escola_id":"124370","turno_id":"2"},{"id":"5189","nome":"6\u00ba
+        Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5191","nome":"6\u00ba Ano
+        2","escola_id":"124370","turno_id":"2"},{"id":"5194","nome":"6\u00baano3","escola_id":"124370","turno_id":"2"},{"id":"5190","nome":"7\u00ba
+        Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5197","nome":"7\u00ba Ano
+        2","escola_id":"124370","turno_id":"1"},{"id":"5196","nome":"7\u00ba ano 3","escola_id":"124370","turno_id":"2"},{"id":"5181","nome":"8\u00ba
+        Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5177","nome":"8\u00ba Ano
+        2","escola_id":"124370","turno_id":"2"},{"id":"5192","nome":"9\u00ba Ano 1","escola_id":"124370","turno_id":"1"},{"id":"5193","nome":"9\u00ba
+        Ano 2","escola_id":"124370","turno_id":"2"},{"id":"5176","nome":"N\u00edvel
+        III Integral-M","escola_id":"124370","turno_id":"1"},{"id":"5199","nome":"N\u00edvel
+        III integral-V","escola_id":"124370","turno_id":"2"},{"id":"5178","nome":"n\u00edvel
+        III-vesp.","escola_id":"124370","turno_id":"2"},{"id":"5179","nome":"Pr\u00e9
+        1","escola_id":"124370","turno_id":"2"},{"id":"5200","nome":"Pr\u00e9 integral-M","escola_id":"124370","turno_id":"1"},{"id":"5198","nome":"pr\u00e9
+        integral-V","escola_id":"124370","turno_id":"2"},{"id":"5173","nome":"Turma
+        - 1","escola_id":"703025","turno_id":"1"},{"id":"5174","nome":"Turma - 2","escola_id":"703025","turno_id":"1"},{"id":"5175","nome":"Turma
+        - 3","escola_id":"703025","turno_id":"2"},{"id":"5172","nome":"Turma - 4","escola_id":"703025","turno_id":"2"}],"oper":"get","resource":"turmas-por-escola","msgs":[],"any_error_msg":false}'
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 03:35:23 GMT
+- request:
+    method: get
+    uri: http://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2017&instituicao_id=1&modified&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.2.6p396
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Fri, 05 Apr 2019 12:12:41 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '194'
+      Connection:
+      - keep-alive
+      Location:
+      - https://test.ieducar.com.br/module/Api/Turma?ano=2017&resource=turmas-por-escola&modified&oper=get&access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC&instituicao_id=1
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.14.0
+        (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 03:06:37 GMT
+- request:
+    method: get
+    uri: https://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2017&instituicao_id=1&modified&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.2.6p396
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      Date:
+      - Fri, 05 Apr 2019 12:12:42 GMT
+      X-Xss-Protection:
+      - '0'
+      Set-Cookie:
+      - i_educar_session=DbTR0u0RGnluM1KRblxzgXQ8EJPQk7eQXVCZELvI; expires=Fri, 05-Apr-2019
+        14:12:42 GMT; Max-Age=7200; path=/; httponly
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        YwEA
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 03:06:37 GMT
+- request:
+    method: get
+    uri: http://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2017&escola=1&instituicao_id=1&modified&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.2.6p396
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Date:
+      - Fri, 14 Jun 2019 20:22:55 GMT
+      Content-Type:
+      - text/html
+      Content-Length:
+      - '194'
+      Connection:
+      - keep-alive
+      Location:
+      - https://test.ieducar.com.br/module/Api/Turma?ano=2017&escola=1&resource=turmas-por-escola&modified&oper=get&access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC&instituicao_id=1
+    body:
+      encoding: UTF-8
+      string: "<html>\r\n<head><title>301 Moved Permanently</title></head>\r\n<body
+        bgcolor=\"white\">\r\n<center><h1>301 Moved Permanently</h1></center>\r\n<hr><center>nginx/1.14.0
+        (Ubuntu)</center>\r\n</body>\r\n</html>\r\n"
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 03:02:00 GMT
+- request:
+    method: get
+    uri: https://test.ieducar.com.br/module/Api/Turma?access_key=8IOwGIjiHvbeTklgwo10yVLgwDhhvs&ano=2017&escola=1&instituicao_id=1&modified&oper=get&resource=turmas-por-escola&secret_key=5y8cfq31oGvFdAlGMCLIeSKdfc8pUC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.2.6p396
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.14.0 (Ubuntu)
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - no-cache, private
+      Date:
+      - Fri, 14 Jun 2019 20:22:56 GMT
+      Set-Cookie:
+      - i_educar_session=n7mXlReSBnsAOseGvQajFTDdLyr1RAb07ZmQxcCt; expires=Fri, 14-Jun-2019
+        22:22:56 GMT; Max-Age=7200; path=/; httponly
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA93Z0W6CMBQG4FcxvdaEtqCUu73D7jZDOqiGBKkpsmQxvvuK
+        aCTucGWPnuyyLQU++TlgObJD53a6ZdnHkVUly1jMlWJz1tid8S3+2UXRl569
+        NXbGfbdurO8VEV/5hmkLW+v8PK0f9Ltq7NCMfbPoXHtpyijyHa1xlbl0+KYz
+        W6dz/a3rShf6siVfAiNltTHONEWly+FwTVfXc9btS30wZa4PwzmpRZQsJJ/x
+        JJMy48LvqTS1uW7STzrNr0xxPiWAKf4Zk8NM+c+Y8sYUWKGNCThj2Bk0tRSc
+        CewMGlsKztXNKZFyC2qe7UxhZ8jcknAq2BkytxSc5/GLM8aqt8mkExrBcUrY
+        GbTeUnDGsDNovaXgHNXbBCm3QhFwprAzZG5JOBXsDJlbCk4xqrfLULnld87p
+        +xP6BXCcEnY+lFuKzhh2PpRbis5RvV0h5ZYTYKYwM2RsKTAVzAyZWgJMOVoa
+        SrFCO/1Qgf6W4jg57AyaWgrO0cNTIV1PuSLglLAz5PWk4BSj+/O9X79+5Eoq
+        ld6/700JoXVOnLdaZCABYYIqnFzZexpQ4ALl5Jr704SRwBVGrxcuUYWTlfR5
+        IeX3wAceFSQLKTKQgPBPRoMKCRRSXODLCul6zuzeOD9haw7nQ7W2c0XPHL7J
+        L/bWLQaaH9612/4r/bqn/+TGOety38eyja5bc/oFEev1EckfAAA=
+    http_version: 
+  recorded_at: Wed, 01 Mar 2017 03:02:01 GMT
+recorded_with: VCR 3.0.0

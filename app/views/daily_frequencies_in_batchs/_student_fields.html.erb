@@ -1,0 +1,109 @@
+<tr>
+  <td style="text-align: center; vertical-align: middle; width: 20px;"> <%= index + 1 %> </td>
+  <td style="vertical-align: middle;">
+    <% student_data = custom_student_name(student, params[:dates]) %>
+
+    <span style="color: <%= student_data[:color] %>"><%= student_data[:name] %></span>
+  </td>
+  <% absences_on_the_period = 0 %>
+  <% if @general_configuration.type_of_teaching == true %>
+    <td style="width: 150px;">
+      <%= form.input :type_of_teaching, as: :select2, elements: TypesOfTeaching.to_select_specific_values(false, @general_configuration.types_of_teaching).to_json,
+                  label: false, required: false,
+                  input_html: { value: student[:type_of_teaching], data: { without_json_parser: true, id: :type_of_teaching } }  %>
+    </td>
+  <% end %>
+  <% params[:dates].each do |date| %>
+    <% response_data = data_additional(date, student) %>
+
+    <td class="frequency-in-batch-day" style="width: 1%;">
+      <div class="<%= response_data[:response_class] %>" style="display: flex; max-height: 50px">
+        <div style="width: 30px; margin: 0 5px;">
+          <span>
+            &nbsp
+            <br>
+          </span>
+          <label title="<%= response_data[:response_tooltip] %>" class="checkbox checkbox-frequency checkbox-batch <%= response_data[:response_class] ? 'state-disabled never-change ' + response_data[:response_class] : '' %>" style="left: 4px; bottom: 15px;">
+            <% student_input_name =  '[' + student[:student][:id].to_s + ']' + '[present]' %>
+            <input type="checkbox" name="<%= student_input_name %>" class="general-checkbox <%= response_data[:response_class] ? 'never-change ' + response_data[:response_class] : '' %>" <%= response_data[:response_class] ? 'disabled="disabled"' : '' %>>
+            <i class="general-checkbox-icon checkbox-frequency-in-batch"></i>
+          </label>
+          <br>
+        </div>
+        <div style="display: flex; max-width: 150px; vertical-align: middle; padding: 0 5px;" class="class-number-collapse">
+          <% date[:daily_frequencies].each do |daily_frequency| %>
+            <% date = daily_frequency.frequency_date %>
+            <% class_number = daily_frequency.class_number || nil %>
+            <% student_id = student[:student][:id] %>
+            <% frequency_id = "#{date.to_s.tr('-', '').rjust(10, '0')}#{class_number.to_s.rjust(10, '0')}" %>
+            <% daily_frequency_path = "[daily_frequency][daily_frequencies][#{frequency_id}]" %>
+
+            <% absence_justification = @absence_justifications[student_id] || {} %>
+            <% absence_justifications = absence_justification[date] || {} %>
+            <% absence_justification_student_id = absence_justifications[0] || absence_justifications[class_number] %>
+
+            <input type="hidden" name="<%= daily_frequency_path %>[date]"
+                   value="<%= date %>">
+
+            <input type="hidden" name="<%= daily_frequency_path %>[class_number]"
+                   value="<%= @frequency_type == FrequencyTypes::GENERAL ? nil : class_number %>">
+
+            <% daily_frequency_student_path = "#{daily_frequency_path}[students_attributes]" %>
+
+
+            <% unique_id = "#{class_number.to_s.rjust(10, '0')}#{student[:student][:id].to_s.rjust(10, '0')}" %>
+            <%= simple_fields_for "#{daily_frequency_student_path}[#{unique_id}]",
+                                  daily_frequency_student = daily_frequency.build_or_find_by_student(student[:student][:id]) do |f| %>
+
+              <div class="<%= class_number != nil ? '' : 'hidden' %>">
+                <span>
+                  &nbsp <%= class_number %>
+                  <br>
+                </span>
+                <%= f.hidden_field :id, value: daily_frequency_student.id %>
+                <%= f.hidden_field :daily_frequency_id, value: daily_frequency.id %>
+                <%= f.hidden_field :student_id, value: student[:student][:id] %>
+                <%= f.hidden_field :dependence, value: response_data[:response_tooltip] == 'Dependência' ? true : false %>
+                <%= f.hidden_field :active, value: response_data[:response_class] != 'inactive' ? true : false %>
+                <%= f.hidden_field :type_of_teaching, value: student[:type_of_teaching] %>
+                <%= f.hidden_field :absence_justification_student_id, class: 'hidden-justified', value: absence_justification_student_id %>
+
+                <% if absence_justification_student_id %>
+                  <label title="Falta Justificada" class="checkbox checkbox-frequency justified" style="margin-top: -5px">
+                    <input type="checkbox" disabled><i></i>
+                    <span class="hide">Falta Justificada</span>
+                  </label>
+                <% else %>
+                  <label class="checkbox checkbox-frequency <%= response_data[:response_class] ? 'state-disabled never-change ' + response_data[:response_class] : '' %>" style="bottom: 15px;" title="<%= response_data[:response_tooltip] %>">
+                    <%= f.check_box :present, class: 'class-number-checkbox' + (response_data[:response_class] ? ' never-change ' + response_data[:response_class] : ' '), value: daily_frequency_student.persisted? ? daily_frequency_student.present : true, disabled: response_data[:response_class] ? true : false %>
+                    <i class="checkbox-frequency-in-batch"></i>
+                    <span class="hide">Lançar frequência</span>
+                  </label>
+                <% end %>
+
+                <% if daily_frequency_student.persisted? %>
+                  <% if response_data[:response_class] != 'inactive' %>
+                    <% absences_on_the_period += daily_frequency_student.present ? 0 : 1 %>
+                  <% end %>
+                <% end %>
+              </div>
+
+              <% if @general_configuration.type_of_teaching == true %>
+                <span class='hidden'>
+                  <%= f.input :type_of_teaching, as: :select2, elements: TypesOfTeaching.to_select_specific_values(false, @general_configuration.types_of_teaching).to_json,
+                              label: false, required: false,
+                              input_html: { value: f.object.type_of_teaching, data: { without_json_parser: true, id: 'type_of_teaching_input' } }  %>
+                </span>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </td>
+  <% end %>
+  <td style="width: 25px; text-align: center; vertical-align: middle;">
+    <span class="student-absences-count">
+      <%= absences_on_the_period %>
+    </span>
+  </td>
+</tr>

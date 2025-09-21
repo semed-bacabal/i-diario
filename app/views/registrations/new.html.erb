@@ -1,0 +1,117 @@
+
+<div class="widget-body">
+  <h2>Crie sua conta</h2>
+
+  <div class="row">
+    <%= simple_form_for @signup, as: :signup, url: registrations_path, html: { class: "signup" } do |f| %>
+      <%= f.error_notification %>
+
+      <div id="signup-wizard" class="col-sm-12">
+        <fieldset>
+          <legend>Dados pessoais</legend>
+
+          <div class="alert alert-info">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+            Depois de criar sua conta você poderá acessar usando seu e-mail ou CPF.
+          </div>
+
+          <% if @signup.errors[:base].present? %>
+            <div class="alert alert-danger">
+              <%= @signup.errors[:base].to_sentence %>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :first_name, label: false, wrapper: 'input_group' do %>
+                  <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
+                  <%= f.input_field :first_name, as: :string, placeholder: 'Nome', class: 'form-control input-lg' %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :last_name, label: false, wrapper: 'input_group' do %>
+                  <span class="input-group-addon"><i class="fa fa-user fa-lg fa-fw"></i></span>
+                  <%= f.input_field :last_name, as: :string, placeholder: 'Sobrenome', class: 'form-control input-lg' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :email, label: false, wrapper: 'input_group' do %>
+                  <span class="input-group-addon"><i class="fa fa-envelope-o fa-lg fa-fw"></i></span>
+                  <%= f.input_field :email, as: :string, placeholder: "E-mail", class: "form-control input-lg",
+                    data: { :"rule-email" => true } %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :document, label: false, wrapper: 'input_group' do %>
+                  <span class="input-group-addon"><i class="fa fa-file-text-o fa-lg fa-fw"></i></span>
+                  <%= f.input_field :document, as: :string, placeholder: "CPF", class: "form-control input-lg",
+                    data: { mask: "999.999.999-99" } %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :password, label: false, wrapper: 'input_group' do %>
+                  <span class="input-group-addon"><i class="fa fa-key fa-lg fa-fw"></i></span>
+                  <%= f.input_field :password, as: :password, placeholder: "Senha", class: "form-control input-lg" %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.input :password_confirmation, label: false, wrapper: 'input_group' do %>
+                  <span class="input-group-addon"><i class="fa fa-key fa-lg fa-fw"></i></span>
+                  <%= f.input_field :password_confirmation, as: :password, placeholder: "Confirme a senha", class: "form-control input-lg" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="signup-roles">
+          <legend>Tipo de conta</legend>
+
+            <div class="col-sm-offset-4 col-sm-4 text-center">
+              <div class="form-group">
+                <div class="well well-lg well-employee-role">
+                  <i class="fa fa-male fa-2x"></i><br/>
+                  <strong>Acesso servidores</strong>
+
+                  <label class="checkbox">
+                    <%= f.input_field :employee_role, as: :boolean, boolean_style: :inline, class: 'checkbox' %>
+                    <span>Selecione esta opção se você é um servidor da rede de ensino e deseja cadastrar-se para acessar recursos como diário eletrônico e outras ferramentas administrativas exclusivas para servidores.</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <div class="row">
+            <div class="col-sm-12">
+              <%= link_to 'Voltar', root_path, class: "btn btn-lg btn-info" %>
+              <%= submit_tag 'Confirmar e acessar o sistema', class: 'btn btn-success btn-lg', data: { disable_with: "Enviando..." } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

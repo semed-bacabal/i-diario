@@ -1,0 +1,30 @@
+<div class="widget-body no-padding">
+  <div class="table-responsive">
+    <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover" id="resources">
+      <thead>
+        <tr>
+          <th scope="col"><%= TestSetting.human_attribute_name :exam_setting_type %></th>
+          <th scope="col"><%= TestSetting.human_attribute_name :year %></th>
+          <th scope="col"><%= TestSetting.human_attribute_name :unities %></th>
+          <th scope="col"><%= TestSetting.human_attribute_name :school_term_type_step %></th>
+          <th scope="col"><%= TestSetting.human_attribute_name :maximum_score %></th>
+          <th scope="col"><%= TestSetting.human_attribute_name :number_of_decimal_places %></th>
+          <th scope="col"><%= TestSetting.human_attribute_name :average_calculation_type %></th>
+          <th scope="col" class="actions" style="width: 160px;"><%= link_to t('.new_html'), new_test_setting_path, class: "btn btn-primary" %></th>
+        </tr>
+      </thead>
+
+      <%= render 'resources' %>
+      <tfoot id="paginator" class="remote">
+        <td colspan="8">
+          <div id="page_entries_info" class="pull-left hidden-xs">
+            <%= page_entries_info @test_settings %>
+          </div>
+          <div class="pull-right">
+            <%= paginate @test_settings %>
+          </div>
+        </td>
+      </tfoot>
+    </table>
+  </div>
+</div>

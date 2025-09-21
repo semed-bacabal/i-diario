@@ -1,0 +1,44 @@
+<div class="well no-padding">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "smart-form client-form" }) do |f| %>
+    <header>Cadastrar no sistema</header>
+
+    <%= f.error_notification %>
+
+    <fieldset>
+      <section>
+        <%= f.label :email, class: "label" %>
+
+        <label class="input">
+          <i class="icon-append fa fa-user"></i>
+          <%= f.input_field :email, required: true, autofocus: true %>
+        </label>
+      </section>
+
+      <section>
+        <%= f.label :password, class: "label" %>
+
+        <label class="input">
+          <i class="icon-append fa fa-lock"></i>
+          <%= f.input_field :password, required: true %>
+        </label>
+      </section>
+
+      <section>
+        <%= f.label :password_confirmation, class: "label" %>
+
+        <label class="input">
+          <i class="icon-append fa fa-lock"></i>
+          <%= f.input_field :password_confirmation, required: true %>
+        </label>
+
+        <div class="note">
+          <%= render "devise/shared/links" %>
+        </div>
+      </section>
+    </fieldset>
+
+    <footer>
+      <%= f.button :submit, "Cadastrar", class: "btn btn-primary" %>
+    </footer>
+  <% end %>
+</div>

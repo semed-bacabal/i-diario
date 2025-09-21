@@ -1,0 +1,81 @@
+<tbody id="resources-tbody">
+  <% if @knowledge_area_lesson_plans.empty? %>
+    <tr>
+      <td class="no_record_found" colspan="7"><%= t('views.index.no_record_found')%></td>
+    </tr>
+  <% else %>
+    <% @knowledge_area_lesson_plans.each do |knowledge_area_lesson_plan| %>
+      <tr>
+        <td>
+          <% if knowledge_area_lesson_plan.lesson_plan.validated %>
+            <i class="fa fa-check-circle-o apply_tooltip_right"
+               data-original-title="Plano validado e aprovado"
+               style="color: #5A9F58"></i>
+          <% end %>
+          <%= knowledge_area_lesson_plan.lesson_plan.unity %>
+          <% if knowledge_area_lesson_plan.lesson_plan.attachments? %>
+            <i class="fa fa-paperclip apply_tooltip" data-original-title="Possui anexos"></i>
+          <% end %>
+          <% if knowledge_area_lesson_plan.lesson_plan.opinion.present? %>
+            <i class="fa fa-comment apply_tooltip" data-original-title="Possui parecer"></i>
+          <% end %>
+        </td>
+        <td class="classroom"><%= knowledge_area_lesson_plan.lesson_plan.classroom %></td>
+        <td class="knowledge_area">
+          <% knowledge_area_lesson_plan.knowledge_areas.each do |knowledge_area| %>
+            <span class="label label-info label-list">
+              <%= knowledge_area.description %>
+            </span>
+          <% end %>
+        </td>
+        <td class="experience_field"><%= knowledge_area_lesson_plan.experience_fields %></td>
+        <td class="start_at"><%= l(knowledge_area_lesson_plan.lesson_plan.start_at) %></td>
+        <td class="end_at"><%= l(knowledge_area_lesson_plan.lesson_plan.end_at) %></td>
+        <td><%= knowledge_area_lesson_plan.lesson_plan.decorator.author(current_teacher) %></td>
+        <td class="actions">
+           <%= link_to(
+                t('helpers.links.copy_html'),
+                '#',
+                class: 'btn btn-primary apply_tooltip open_copy_modal',
+                data: { original_title: t('views.index.tooltips.copy'),
+                        knowledge_area_lesson_plan_id: knowledge_area_lesson_plan.id,
+                        classroom_id: knowledge_area_lesson_plan.classroom.id,
+                        grade_id: (
+                          unless GeneralConfiguration.current.allows_copy_lesson_plans_to_other_grades
+                            knowledge_area_lesson_plan.classroom.grade_ids
+                          end
+                        )
+                      }) %>
+            <%= link_to(
+                t('helpers.links.show_html'),
+                knowledge_area_lesson_plan_path(knowledge_area_lesson_plan),
+                class: 'btn btn-info apply_tooltip',
+                data: { original_title: t('views.index.tooltips.show') }) %>
+          <%= link_to(
+                t('helpers.links.print_html'),
+                print_knowledge_area_lesson_plans_path(id: knowledge_area_lesson_plan),
+                class: 'btn btn-info apply_tooltip',
+                target: '_blank',
+                data: { original_title: t('views.index.tooltips.print') }) %>
+          <%= link_to(
+                  t('helpers.links.edit_html'),
+                  edit_knowledge_area_lesson_plan_path(knowledge_area_lesson_plan),
+                  class: 'btn btn-success apply_tooltip',
+                  data: { original_title: t('views.index.tooltips.edit') }
+                ) %>
+          <%= link_to(
+                  t('helpers.links.destroy_html'),
+                  knowledge_area_lesson_plan_path(knowledge_area_lesson_plan),
+                  class: 'btn btn-danger apply_tooltip',
+                  disabled: !lesson_plan_destroy?(knowledge_area_lesson_plan.lesson_plan),
+                  method: 'delete',
+                  data: {
+                    confirm: t('views.index.confirm_deletion'),
+                    original_title: t('views.index.tooltips.delete')
+                  }
+                ) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>

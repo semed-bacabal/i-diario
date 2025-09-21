@@ -1,0 +1,17 @@
+pt-BR:
+  pedagogical_trackings:
+    index:
+      filter_unities: 'Escola'
+      filter_classrooms: 'Turma'
+      filter_teacher: 'Professor'
+      filter_frequency: 'Frequência'
+      filter_content_record: 'Registro de conteúdos'
+      from: 'Desde'
+      to: 'Até'
+      empty: 'Não existem lançamentos ainda nas escolas'
+      last_update: 'Última atualização'
+      recalculate_school_days: 'Recalcular dias letivos'
+      filter_days: 'Filtrar'
+      recalculate_school_days_success: 'Recálculo dos dias letivos iniciado com sucesso'
+    minimum_year:
+      error: 'Funcionalidade apenas disponível para o ano 2020 ou superior.'

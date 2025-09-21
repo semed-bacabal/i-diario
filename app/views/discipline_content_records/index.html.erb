@@ -1,0 +1,62 @@
+<% content_for :js do %>
+  <%= javascript_include_tag 'views/discipline_content_records/index' %>
+<% end %>
+<div class="widget-body no-padding">
+  <%= simple_form_for :filter, { url: discipline_content_records_path, method: :get, html: { class: 'filterable_search_form' } } do |f| %>
+    <div class="table-responsive">
+      <table id="resources" class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover">
+        <thead>
+          <tr>
+           <th scope="col">
+              <%= f.input :by_classroom_id, as: :select2, elements: @classrooms,
+                    label: false, placeholder: t('.by_classroom_description') %>
+            </th>
+            <th scope="col">
+              <%= f.input :by_discipline_id, as: :select2, elements: @disciplines,
+                    label: false, placeholder: t('.by_discipline_description') %>
+            </th>
+            <th scope="col"><%= f.input :by_date, as: :date, label: false, placeholder: t('.by_date') %></th>
+            <th scope="col">
+              <%= f.input :by_author, as: :select2_plans, label: false %>
+            </th>
+
+            <% if @allow_class_number %>
+              <th scope="col"></th>
+            <% end %>
+
+            <th scope="col">
+              <%= link_to t('.new_html'), new_discipline_content_record_path,
+                class: 'btn btn-primary pull-right', style: 'width: 165px;' %>
+            </th>
+          </tr>
+
+          <tr>
+            <th scope="col"><%= ContentRecord.human_attribute_name :classroom %></th>
+            <th scope="col"><%= DisciplineContentRecord.human_attribute_name :discipline %>
+            <th scope="col"><%= ContentRecord.human_attribute_name :record_date %></th>
+            <th scope="col" style='width: 10%' id='author'>
+              <%= DisciplineContentRecord.human_attribute_name :author %>
+            </th>
+
+            <% if @allow_class_number %>
+              <th scope="col" style='width: 10%' scope='col'>
+                <%= DisciplineContentRecord.human_attribute_name :class_number %>
+              </th>
+            <% end %>
+
+            <th scope="col" style='width: 160px'></th>
+          </tr>
+        </thead>
+
+        <%= render 'resources' %>
+
+        <tfoot id="paginator" class="remote">
+          <td id="pagination-tfoot" colspan="6">
+            <%= render 'shared/pagination', records: @discipline_content_records %>
+          </td>
+        </tfoot>
+      </table>
+    </div>
+  <% end %>
+</div>
+<%= render 'copy_discipline_content_record_modal' %>

@@ -1,0 +1,18 @@
+test_setting_a:
+  exam_setting_type: 'general'
+  year: 2015
+  maximum_score: 10
+  number_of_decimal_places: 2
+  average_calculation_type: "sum"
+test_setting_b:
+  exam_setting_type: 'general'
+  year: 2014
+  maximum_score: 10
+  number_of_decimal_places: 2
+  average_calculation_type: "arithmetic"
+test_setting_c:
+  exam_setting_type: 'general'
+  year: 2017
+  maximum_score: 10
+  number_of_decimal_places: 1
+  average_calculation_type: "arithmetic"

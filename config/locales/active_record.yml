@@ -1,0 +1,64 @@
+pt-BR:
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+
+    messages:
+      accepted: "deve ser aceito"
+      blank: "não pode ficar em branco"
+      present: "deve ficar em branco"
+      confirmation: "não está de acordo com a confirmação"
+      empty: "não pode ficar vazio"
+      equal_to: "deve ser igual a %{count}"
+      even: "deve ser par"
+      exclusion: "não está disponível"
+      greater_than: "deve ser maior que %{count}"
+      greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+      inclusion: "não está incluído na lista"
+      invalid: "não é válido"
+      less_than: "deve ser menor que %{count}"
+      less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+      other_than: "deve ser diferente de %{count}"
+      not_a_number: "não é um número"
+      not_an_integer: "não é um número inteiro"
+      invalid_date: "deve ser uma data válida"
+      must_be_a_valid_date: "deve ser uma data válida"
+      not_in_future: "deve ser menor ou igual a data de hoje"
+      not_school_calendar_day: "deve ser um dia letivo"
+      is_not_between_steps: "deve ser um dia dentro do calendário letivo"
+      not_allowed_to_post_in_date: "Não é possível alterar registros fora das datas de lançamento da etapa"
+      not_school_term_day: "deve ser um dia letivo da etapa informada"
+      not_belongs_to_teacher: "não pertence ao professor"
+      not_selected_in_profile: "não está selecionado no perfil"
+      uniqueness_of_start_at_and_end_at: "já existe um evento cadastrado para a mesma data inicial"
+      uniqueness_of_end_at_and_start_at: "já existe um evento cadastrado para a mesma data final"
+      odd: "deve ser ímpar"
+      record_invalid: ! "A validação falhou: %{errors}"
+      restrict_dependent_destroy:
+        one: "Não é possível excluir o registro pois existe um %{record} dependente"
+        many: "Não é possível excluir o registro pois existem %{record} dependentes"
+
+      taken: "já está em uso"
+      too_long: ! "é muito longo (máximo: %{count} caracteres)"
+      too_short: ! "é muito curto (mínimo: %{count} caracteres)"
+      wrong_length: "não possui o tamanho esperado (%{count} caractere(s))"
+      incorrect_format: "formato incorreto"
+      invalid_email: "use apenas letras (a-z), números e pontos."
+      invalid_url: "formato de url inválido"
+      unity_email_must_be_present: "não possui email configurado"
+      must_choose_one_role: "Necessário escolher um tipo de conta"
+      default_role_not_found: "não foi possível encontrar a permissão padrão para %{role}"
+
+    template:
+      body: ! "Por favor, verifique o(s) seguinte(s) campo(s):"
+      header:
+        one: ! "Não foi possível gravar %{model}: 1 erro"
+        other: ! "Não foi possível gravar %{model}: %{count} erros."
+
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+
+  activerecord:
+    errors:
+      <<: *errors

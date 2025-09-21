@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="extr-page">
+  <head>
+    <title>i-Diário</title>
+    <%= render 'layouts/google_tag_manager_head' %>
+    <%= render 'layouts/default_headers' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/google_tag_manager_body' %>
+    <%= render '/layouts/not_logged_header' %>
+
+    <div id="main" role="main" class="animated fadeInDown">
+      <div id="content" class="container">
+        <div class="row">
+
+          <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm hidden-md">
+            <%= alert_by_entity(current_entity.name).html_safe %>
+
+            <h1 class="login-header-big txt-color-portabilis">Serviços eletrônicos para a Comunidade escolar</h1>
+            <div class="hero">
+
+              <div class="pull-left login-desc-box-l">
+                <h4 class="paragraph-header">Estamos ajudando a conectar pais, alunos e professores. Crie sua conta e confira. Ensinar e aprender nunca foi tão moderno!</h4>
+                <div class="login-app-icons">
+                  <%= link_to 'Saiba mais', entity_website, target: '_blank', class: 'btn btn-portabilis btn-sm' %>
+                </div>
+              </div>
+
+              <%= image_tag 'tablet_boletim.png', height: '220px' %>
+
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h5 class="about-heading">Quais recursos estão disponíveis?</h5>
+                <p>
+                  Este serviço disponibiliza recursos e informações para pais, alunos e professores. A disponibilidade destes depende exclusivamente da instituição.
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h5 class="about-heading">Como obter ajuda?</h5>
+                <p>
+                  Se você precisar de ajuda, poderá contatar por e-mail ou telefone a instituição que você está tentando obter acesso.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+            <%= bootstrap_flash %>
+
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag "devise" %>
+  </body>
+</html>

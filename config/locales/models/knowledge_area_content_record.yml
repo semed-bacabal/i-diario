@@ -1,0 +1,24 @@
+pt-BR:
+  activerecord:
+    models:
+      knowledge_area_content_record:
+        one: "Registro de conteúdo por área de conhecimento"
+        other: "Registros de conteúdos por área de conhecimento"
+
+    attributes:
+      knowledge_area_content_record:
+        content_record: "Registro de conteúdo"
+        content_record_id: "Registro de conteúdo"
+        knowledge_areas: "Áreas de conhecimento"
+        knowledge_area_ids: "Áreas de conhecimento"
+        author: "Autor"
+        contents: "Conteúdos"
+        experience_fields: "Campos de experiência"
+    errors:
+      models:
+        knowledge_area_content_record:
+          attributes:
+            knowledge_area_ids:
+              knowledge_area_in_use: "já existe um registro de conteúdo para a área de conhecimento informada"
+  messages:
+    copy_succeed: 'Registro de conteúdo por área de conhecimento copiado com sucesso!'

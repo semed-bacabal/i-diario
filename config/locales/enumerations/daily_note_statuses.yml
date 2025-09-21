@@ -1,0 +1,5 @@
+pt-BR:
+  enumerations:
+    daily_note_statuses:
+      incomplete: "Incompleto"
+      complete: "Completo"

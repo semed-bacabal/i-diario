@@ -1,0 +1,8 @@
+pt-BR:
+  current_role:
+    set:
+      notice: "Perfil alterado com sucesso."
+      alert: "Perfil não pode ser alterado. Verifique se o usuário possui este perfil."
+    check:
+      warning: "Você não possui um perfil selecionado ou alguma informação não foi preenchida. Por favor, clique sobre o campo perfil no menu superior e selecione uma das opções para continuar."
+      unlinked: "Você não está vinculado à turmas nesse ano letivo. Contate a Secretaria de sua escola em caso de dúvidas."

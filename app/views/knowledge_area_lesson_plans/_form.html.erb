@@ -1,0 +1,69 @@
+<% content_for :js do %>
+  <%= javascript_include_tag 'list-contents' %>
+  <%= javascript_include_tag 'summernote' %>
+  <%= javascript_include_tag 'views/knowledge_area_lesson_plans/form' %>
+  <%= javascript_include_tag 'views/layouts/copy-objectives' %>
+<% end %>
+
+<%= hidden_field_tag :action_name, action_name %>
+<%= simple_form_for @knowledge_area_lesson_plan,
+    url: knowledge_area_lesson_plan_form_url(@knowledge_area_lesson_plan, action_name),
+    method: lesson_plan_form_method(action_name),
+    html: { class: 'smart-form' } do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.simple_fields_for :lesson_plan, @knowledge_area_lesson_plan.lesson_plan.localized do |lesson_plan| %>
+    <%= lesson_plan.hidden_field :id %>
+
+    <%= render partial: 'lesson_plans/base_errors', locals: { f: lesson_plan } %>
+
+    <fieldset>
+      <% if action_name != 'show' %>
+      <% school_type = GeneralConfiguration.current.group_children_education ? 'group_child_schools' : 'experience_fields' %>
+        <%= render 'teaching_plans/copy_objectives', f: lesson_plan, type: school_type, modal_id: 'confirm-copy-objectives-modal', confirm_btn: 'confirm-copy-objectives-btn' %>
+      <% end %>
+
+      <div class="row">
+        <%= render partial: 'lesson_plans/unity_field', locals: { f: lesson_plan } %>
+
+        <%= render partial: 'lesson_plans/classroom_field', locals: { f: lesson_plan } %>
+
+        <div class="col col-sm-4">
+          <%= f.input :knowledge_area_ids, as: :select2, elements: @knowledge_areas, multiple: true,
+                input_html: { data: { without_json_parser: true } }, readonly: action_name == 'show' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <%= render partial: 'lesson_plans/lesson_plan_date_fields', locals: { f: lesson_plan } %>
+        <div class="col col-sm-4">
+          <%= f.input :experience_fields, readonly: action_name == 'show' %>
+        </div>
+      </div>
+    </fieldset>
+
+    <%= render partial: 'lesson_plans/fields', locals: { f: lesson_plan, model: @knowledge_area_lesson_plan, modal_id: '#confirm-copy-objectives-modal', } %>
+
+    <%= render partial: 'lesson_plans/opinion_field', locals: { f: lesson_plan } %>
+
+    <%= render partial: 'lesson_plans/hidden_fields', locals: { f: lesson_plan } %>
+
+    <% if lesson_plan.object.persisted? %>
+      <div style="position: absolute; margin-top: 11px; <%= action_name == 'show' ? 'right: 340px;' : 'right: 340px;' %>">
+        <%= lesson_plan.input :validated, as: :boolean, label: false, inline_label: true, disabled: current_user.teacher? %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <footer>
+    <%= link_to t('views.form.back'), knowledge_area_lesson_plans_path, class: 'btn btn-default' %>
+
+    <% if @knowledge_area_lesson_plan.persisted? %>
+      <%= link_to t('views.form.history'),
+            history_knowledge_area_lesson_plan_path(@knowledge_area_lesson_plan),
+            class: 'btn btn-info' %>
+    <% end %>
+
+    <%= f.submit t('views.form.save'), class: 'btn btn-primary', data: { disable_with: 'Salvando...' } unless action_name == 'show' && current_user.teacher? %>
+  </footer>
+<% end %>

@@ -1,0 +1,12 @@
+pt-BR:
+  enumerations:
+    access_level:
+      administrator: "Administrador"
+      employee: "Servidor"
+      teacher: "Professor"
+      student: "Estudante"
+      plural:
+        administrator: "Administradores"
+        employee: "Servidores"
+        teacher: "Professores"
+        student: "Estudantes"

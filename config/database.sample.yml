@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  username: <%= ENV.fetch("DATABASE_USERNAME", "idiario") %>
+  password: <%= ENV.fetch("DATABASE_PASSWORD", "idiario") %>
+  host: <%= ENV.fetch("DATABASE_HOST", "localhost") %>
+
+development:
+  <<: *default
+  database: idiario_development
+
+test:
+  <<: *default
+  database: idiario_test
+
+production:
+  <<: *default
+  database: idiario_production

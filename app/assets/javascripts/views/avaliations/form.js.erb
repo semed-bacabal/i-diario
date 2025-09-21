@@ -1,0 +1,250 @@
+$(function () {
+
+  var $avaliation_setting = $('#avaliation_test_setting_test_id'),
+    $classroom_id = $('#avaliation_classroom_id'),
+    $discipline_id = $('#avaliation_discipline_id'),
+    flashMessages = new FlashMessages();
+
+  window.disciplines = [];
+
+  window.testSettingTests = []
+  var fetchTestSettingTests = function (params, callback) {
+    if (_.isEmpty(window.testSettingTests)) {
+      $.getJSON('/test_setting_tests?' + $.param(params)).always(function (data) {
+        window.testSettingTests = data.test_setting_tests;
+        callback(window.testSettingTests);
+      });
+    } else {
+      callback(window.testSettingTests);
+    }
+  };
+
+  $classroom_id.on('change', async function (e) {
+    await getTestSetting();
+    await getGrades();
+
+    window.disciplines = [];
+
+    $discipline_id.val('').select2({ data: [] });
+
+    if (!_.isEmpty(e.val)) {
+      fetchDisciplines(e.val);
+    }
+
+  });
+
+  function fetchDisciplines(classroom_id) {
+    $.ajax({
+      url: Routes.by_classroom_disciplines_pt_br_path({ classroom_id: classroom_id, format: 'json' }),
+      success: handleFetchDisciplinesSuccess,
+      error: handleFetchDisciplinesError
+    });
+  };
+
+  function handleFetchDisciplinesSuccess(data) {
+    if (data.disciplines.length == 0) {
+      flashMessages.error('Não existem disciplinas para a turma selecionada.');
+      return;
+    }
+
+    var selectedDisciplines = data.disciplines.map(function (discipline) {
+      return { id: discipline.table.id, name: discipline.table.name, text: discipline.table.text };
+    });
+
+    $discipline_id.select2({ data: selectedDisciplines });
+    // Define a primeira opção como selecionada por padrão
+    $discipline_id.val(selectedDisciplines[0].id).trigger('change');
+  };
+
+  function handleFetchDisciplinesError() {
+    flashMessages.error('Ocorreu um erro ao buscar as disciplinas da turma selecionada.');
+  };
+
+  async function getTestSetting() {
+    let classroom_id = $classroom_id.select2('val');
+
+    if (!_.isEmpty(classroom_id)) {
+      return $.ajax({
+        url: Routes.set_avaliation_setting_avaliations_pt_br_path({
+          classroom_id: classroom_id,
+          format: 'json'
+        }),
+        success: handleFetchTestSettingsByClassroomSuccess,
+        error: handleFetchTestSettingsByClassroomError
+      });
+    }
+  }
+
+  function handleFetchTestSettingsByClassroomSuccess(data) {
+    var settings = data['avaliations']
+
+    var options = _.map(settings, function (settings) {
+      return { id: settings['id'], text: settings['description'] };
+    });
+
+    $avaliation_setting.select2({ data: options })
+  }
+
+  function handleFetchTestSettingsByClassroomError() {
+    flashMessages.error('A regra de avaliação da turma informada não permite lançamentos de avaliações numéricas');
+  }
+
+  async function getGrades() {
+    let classroom_id = $('#avaliation_classroom_id').select2('val');
+
+    $('#avaliation_grade_ids').val(null).trigger("change");
+
+    if (!_.isEmpty(classroom_id)) {
+      return $.ajax({
+        url: Routes.set_grades_by_classrooms_avaliations_pt_br_path({
+          classroom_id: classroom_id,
+          format: 'json'
+        }),
+        success: handleFetchGradesByClassroomSuccess,
+        error: handleFetchGradesByClassroomError
+      });
+    }
+  }
+
+  function handleFetchGradesByClassroomSuccess(data) {
+    let grades_select2 = $('#avaliation_grade_ids');
+    var grades_by_classroom = data['avaliations']
+
+    var options = _.map(grades_by_classroom, function (grades_by_classroom) {
+      return { id: grades_by_classroom['id'], text: grades_by_classroom['description'] };
+    });
+
+    grades_select2.select2({ data: options, multiple: true })
+    grades_select2.val(options[0].id).trigger('change');
+  }
+
+  function handleFetchGradesByClassroomError() {
+    flashMessages.error('Não foi encontrado nenhuma série vinculada nessa turma');
+  }
+
+  $('#avaliation_discipline_id').on('change', function (e) {
+    // verifica se a disciplina selecionada tem regra de avaliacao numerica
+    let classroom_id = $classroom_id.select2('val');
+    let discipline_id = $discipline_id.select2('val');
+
+    if (!_.isEmpty(classroom_id)) {
+      return $.ajax({
+        url: Routes.set_type_score_for_discipline_avaliations_pt_br_path({
+          classroom_id: classroom_id,
+          discipline_id: discipline_id,
+          format: 'json'
+        }),
+        error: handleFetchTypeScoreForDisciplineByClassroomError
+      });
+    };
+  });
+
+  function handleFetchTypeScoreForDisciplineByClassroomError() {
+    flashMessages.error('Essa disciplina não tem regra de avaliação numérica');
+  }
+
+  var updateFieldsBasedOnTestSetting = function () {
+    var testSettingId = $('#avaliation_test_setting_id').select2('val');
+    var jsonRequest = $.getJSON('/configuracoes-de-avaliacoes-numericas/' + testSettingId).always(function (data) {
+      if ($.inArray(data.test_setting.exam_setting_type, ['general', 'general_by_school']) != -1) {
+        $('.avaliation_test_setting').hide();
+      }
+
+      switch (data.test_setting.average_calculation_type) {
+        case "sum":
+          $('.avaliation_test_setting_test').show();
+          $('.avaliation_description').hide();
+          $('.avaliation_weight').hide();
+          updateFieldsBaseOnTestSettingTest();
+          break;
+
+        case "arithmetic":
+          $('.avaliation_test_setting_test').hide();
+          $('.avaliation_description').show();
+          $('.avaliation_weight').hide();
+          break;
+
+        case "arithmetic_and_sum":
+          $('.avaliation_description').show();
+          $('.avaliation_weight').show();
+          $('.avaliation_test_setting_test').hide();
+          break;
+
+        default:
+          console.log("Behavior not yet implemented for this average calculation type: " + data.test_setting.average_calculation_type);
+      }
+
+      $weight_input.attr('data-inputmask', "'digits': " + (parseInt(data.test_setting.number_of_decimal_places) || 0));
+      $weight_input.inputmask('customDecimal');
+    });
+
+    var params = { test_setting_id: testSettingId };
+    window.testSettingTests = [];
+
+    if (_.isEmpty(testSettingId)) {
+      $('#avaliation_test_setting_test_id').val('');
+      $('#avaliation_test_setting_test_id').select2({ data: [] });
+    } else {
+      fetchTestSettingTests(params, function (testSettingTests) {
+        var selectedTestSettingTests = _.map(testSettingTests, function (testSettingTest) {
+          return { id: testSettingTest['id'], text: testSettingTest['description'] };
+        });
+
+        $('#avaliation_test_setting_test_id').select2({
+          data: selectedTestSettingTests
+        });
+      });
+    }
+    return jsonRequest;
+  };
+
+  $('#avaliation_test_setting_id').on('change', function (e) {
+    updateFieldsBasedOnTestSetting();
+  });
+
+  var $test_setting_input = $('#avaliation_test_setting_test_id');
+  $test_setting_input.on('change', function (e) {
+    updateFieldsBaseOnTestSettingTest();
+  });
+
+  var $description_and_weight_div = $('#show_when_allow_break_up');
+  var $description_input = $('#avaliation_description');
+  var $weight_input = $('#avaliation_weight');
+
+  var updateFieldsBaseOnTestSettingTest = function () {
+    if (!document.getElementById('avaliation_test_setting_test_id') || _.isEmpty($test_setting_input.select2('val')) || $test_setting_input.select2('val') == 'empty') {
+      $('.avaliation_description').hide();
+      $('.avaliation_weight').hide();
+
+      return;
+    }
+
+    $.getJSON('/test_setting_tests/' + $test_setting_input.select2('val')).always(function (data) {
+      if (data.allow_break_up) {
+        $('.avaliation_description').show();
+        $('.avaliation_weight').show();
+      } else {
+        $('.avaliation_description').hide();
+        $('.avaliation_weight').hide();
+      }
+    });
+  }
+
+  if ($('#avaliation_grade_ids').data('elements').length <= 2){
+    $('.avaliation_grades').hide();
+  }
+
+  function initFields() {
+    if (!!document.getElementById('avaliation_test_setting_id')) {
+      updateFieldsBasedOnTestSetting();
+    }
+
+    if (!!document.getElementById('avaliation_weight')) {
+      updateFieldsBaseOnTestSettingTest();
+    }
+  }
+
+  $(document).ready(function () {
+    initFields();
+  });
+});

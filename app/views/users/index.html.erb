@@ -1,0 +1,62 @@
+<% content_for :js do %>
+  <%= javascript_include_tag 'views/users/index' %>
+<% end %>
+
+<div class="widget-body no-padding">
+  <div class="table-responsive">
+  <%= simple_form_for :search, {url: users_path, method: :get,
+                                html: {class: 'filterable_search_form'}} do |f| %>
+    <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover" id="resources">
+      <thead>
+        <tr>
+          <th scope="col">
+            <div class="btn-group">
+              <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                Ações <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= hidden_field :export_selected, :selected_users %>
+                  <%= link_to '<i class="fa fa-share"></i> Exportar selecionados'.html_safe, '#', id: "export-selected-users" %>
+                </li>
+                <li>
+                  <%= link_to '<i class="fa fa-download"></i> Exportar todos'.html_safe, export_all_users_path(format: :csv) %>
+                </li>
+              </ul>
+            </div>
+          </th>
+          <th scope="col"><%= f.input :by_name, label: false, placeholder: "Filtrar nome", input_html: { value: @search_by_name } %></th>
+          <th scope="col"><%= f.input :by_cpf, label: false, placeholder: "Filtrar CPF", input_html: { value: @search_by_cpf } %></th>
+          <th scope="col"><%= f.input :email, label: false, placeholder: "Filtrar e-mail", input_html: { value: @search_email } %></th>
+          <th scope="col"><%= f.input :login, label: false, placeholder: "Filtrar nome de usuário", input_html: { value: @search_login } %></th>
+          <th scope="col"><%= f.input :status, as: :select, label: false, prompt: "Filtrar status", collection: UserStatus, input_html: { value: @search_status }, selected: @search_status %></th>
+          <th scope="col"></th>
+        </tr>
+        <tr>
+          <th scope="col" class="actions" style="width: 100px;">
+            <input type="checkbox" id="select-all">
+          </th>
+          <th scope="col"><%= User.human_attribute_name :name %></th>
+          <th scope="col"><%= User.human_attribute_name :cpf %></th>
+          <th scope="col"><%= User.human_attribute_name :email %></th>
+          <th scope="col"><%= User.human_attribute_name :login %></th>
+          <th scope="col"><%= User.human_attribute_name :status %></th>
+          <th scope="col" class="actions" style="width: 160px;"> </th>
+        </tr>
+      </thead>
+
+      <%= render 'resources' %>
+      <tfoot id="paginator" class="remote">
+        <td colspan="7">
+          <div id="page_entries_info" class="pull-left hidden-xs">
+            <%= page_entries_info @users %>
+          </div>
+          <div class="pull-right">
+            <%= paginate @users %>
+          </div>
+        </td>
+      </tfoot>
+    </table>
+  <% end %>
+  </div>
+</div>

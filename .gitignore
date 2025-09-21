@@ -1,0 +1,71 @@
+*.rbc
+capybara-*.html
+/log
+/coverage
+/tmp
+/db/*.sqlite3
+/public/system
+/coverage/
+/spec/tmp
+.env
+**.orig
+rerun.txt
+pickle-email-*.html
+config/initializers/secret_token.rb
+config/initializers/sidekiq.rb
+config/initializers/better_errors.rb
+config/database.yml
+config/secrets.yml
+config/google_drive.json
+config/puma.rb
+/public/uploads
+/public/404.html
+/public/500.html
+/public/422.html
+/public/relatorios/*
+!/public/relatorios/.keep
+.idea
+.env
+
+## Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# these should all be checked in to normalise the environment:
+# Gemfile.lock, .ruby-gemset
+Gemfile.lock
+vendor/assets/javascripts/plugins.js
+
+# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
+.rvmrc
+*.swm
+
+# rbenv ruby version file
+.ruby-gemset
+
+db/structure.sql
+
+# File to backport support new postgres to rails 4
+config/initializers/backport_pg_10_support_to_rails_4.rb
+
+# Optinal plugins
+Gemfile.plugins
+
+# Setup
+.setup
+
+# Docker
+docker-compose.override.yml
+
+# Packages
+/packages/*
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# Carrierwave
+config/initializers/custom_carrierwave.rb

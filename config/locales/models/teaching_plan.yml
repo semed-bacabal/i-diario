@@ -1,0 +1,35 @@
+pt-BR:
+  activerecord:
+    models:
+      teaching_plan:
+        one: "Plano de ensino"
+        other: "Planos de ensino"
+
+    attributes:
+      teaching_plan:
+        year: "Ano"
+        unity: "Escola"
+        unity_id: "Escola"
+        grade: "Série"
+        grade_id: "Série"
+        school_term_type: "Tipo de período escolar"
+        school_term_type_step: "Período escolar"
+        school_term_type_id: "Tipo de período escolar"
+        school_term_type_step_id: "Período escolar"
+        objectives: "Objetivos"
+        objectives_tags: "Objetivos"
+        methodology: "Metodologia"
+        evaluation: "Avaliação"
+        references: "Referências"
+        contents_tags: "Conteúdos"
+        grade_ids: "Séries:"
+        opinion: "Parecer"
+        validated: "Plano de ensino validado"
+        teacher_id: "Professor(a)"
+
+    errors:
+      models:
+        teaching_plan:
+          attributes:
+            contents:
+              at_least_one_content_assigned: "Deve possuir pelo menos um conteúdo"

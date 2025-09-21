@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      role:
+        one: "Permissão"
+        other: "Permissões"
+    attributes:
+      role:
+        name: "Nome"
+        author: "Autor"
+        author_id: "Autor"
+        access_level: "Nível de acesso"
+  roles:
+    index:
+      new_html: "<i class='fa fa-plus'></i> Nova permissão"
+    errors:
+      permission_must_match_access_level: "Funcionalidade %{feature} não pertence ao nível de acesso %{access_level}."

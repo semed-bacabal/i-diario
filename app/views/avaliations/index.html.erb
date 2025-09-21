@@ -1,0 +1,58 @@
+<div class="widget-body no-padding">
+  <%= simple_form_for :filter, { url: avaliations_path, method: :get, html: { class: 'filterable_search_form' } } do |f| %>
+    <div class="table-responsive">
+      <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover" id="resources">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"><%= f.input :by_classroom_id, as: :select2, elements: @classrooms, label: false, placeholder: t('.by_classroom_id') %></th>
+            <th scope="col"><%= f.input :by_discipline_id, as: :select2, elements: @disciplines, label: false, placeholder: t('.by_discipline_id') %></th>
+            <th scope="col">
+              <%= f.input :by_test_date, as: :date, label: false,
+                    placeholder: t('.by_test_date') %>
+            </th>
+            <th scope="col"><%= f.input :by_step_id, as: :select2, elements: @steps, label: false, placeholder: t('.by_step_id') %></th>
+            <th scope="col"><%= f.input :by_description, label: false, placeholder: t('.by_description') %></th>
+            <th scope="col" class="actions" style="width: 160px;">
+              <div class="btn-group">
+                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                  <%= t('.new_html') %> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to t('.new_single'), new_avaliation_path %>
+                  </li>
+                  <li>
+                    <%= link_to t('.new_multiple'), multiple_classrooms_avaliations_path %>
+                  </li>
+                </ul>
+              </div>
+            </th>
+          </tr>
+          <tr>
+            <th scope="col"><%= Avaliation.human_attribute_name :unity %></th>
+            <th scope="col"><%= Avaliation.human_attribute_name :classroom %></th>
+            <th scope="col"><%= Avaliation.human_attribute_name :discipline %></th>
+            <th scope="col"><%= Avaliation.human_attribute_name :test_date %></th>
+            <th scope="col"><%= Avaliation.human_attribute_name :step %></th>
+            <th scope="col"><%= Avaliation.human_attribute_name :description %></th>
+            <th scope="col" style="width: 190px"></th>
+          </tr>
+        </thead>
+
+        <%= render 'resources' %>
+
+        <tfoot id="paginator" class="remote">
+          <td colspan="7">
+            <div id="page_entries_info" class="pull-left hidden-xs">
+              <%= page_entries_info @avaliations %>
+            </div>
+            <div class="pull-right">
+              <%= paginate @avaliations %>
+            </div>
+          </td>
+        </tfoot>
+      </table>
+    </div>
+  <% end %>
+</div>

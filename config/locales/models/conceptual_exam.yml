@@ -1,0 +1,32 @@
+pt-BR:
+  activerecord:
+    models:
+      conceptual_exam:
+        one: 'Avaliação conceitual'
+        other: 'Avaliações conceituais'
+
+    attributes:
+      conceptual_exam:
+        unity_id: 'Escola'
+        classroom: 'Turma'
+        classroom_id: 'Turma'
+        step: 'Etapa'
+        step_id: 'Etapa'
+        student: 'Aluno'
+        student_id: 'Aluno'
+        recorded_at: 'Data'
+        status: 'Situação'
+
+    errors:
+      models:
+        conceptual_exam:
+          attributes:
+            classroom:
+              classroom_must_have_conceptual_exam_score_type: 'regra de avaliação não permite lançamento de avaliação conceitual'
+            student:
+              taken: 'já existe um lançamento para este aluno na etapa informada'
+              classroom_must_have_conceptual_exam_score_type: 'regra de avaliação não permite lançamento de avaliação conceitual'
+            conceptual_exam_values:
+              at_least_one_conceptual_exam_value: 'É necessário pelo menos 1 disciplina'
+            base:
+                student_is_not_in_classroom: 'Não é possível modificar o Diário de avaliações conceituais pois o aluno não está enturmado na data do lançamento.'

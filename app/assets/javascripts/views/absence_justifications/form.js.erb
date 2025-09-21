@@ -1,0 +1,130 @@
+$(function () {
+  const PERIOD_FULL = 4;
+  var flashMessages = new FlashMessages(),
+    $studentDiv = $("[data-student]"),
+    $classroom = $("#absence_justification_classroom_id"),
+    $absenceDate = $("#absence_justification_absence_date"),
+    $absenceDateEnd = $("#absence_justification_absence_date_end"),
+    $student = $("#absence_justification_student_ids"),
+    $period = $("#absence_justification_period");
+
+  // on change
+  $classroom.on('change', function (e) {
+    toggleStudent(e.val != '' && e.val != 'empty');
+
+    var params = { classroom_id: e.val };
+
+    if (!_.isEmpty(params)) {
+      fetchStudents();
+      fetchPeriod(params);
+    }
+  });
+
+  function fetchPeriod(params) {
+    $.ajax({
+      url: Routes.valid_teacher_period_in_classroom_absence_justifications_pt_br_path({
+        classroom_id: params.classroom_id,
+        format: 'json'
+      }),
+      success: handleFetchPeriodSuccess,
+      error: handleFetchPeriodError
+    });
+  }
+
+  function handleFetchPeriodSuccess(data) {
+    if (data != '') {
+      if (data != PERIOD_FULL) {
+        $period.select2('val', data);
+        $period.attr('readonly', true)
+      } else {
+        $period.attr('readonly', false)
+      }
+    } else {
+      $period.select2('val', data);
+    }
+  };
+
+  function handleFetchPeriodError() {
+    flashMessages.error('Ocorreu um erro ao buscar o período da turma.');
+  };
+
+  function fetchStudents() {
+    if (!isValidDate($absenceDate.val()) || !isValidDate($absenceDateEnd.val())) {
+      flashMessages.warning('Selecione a "Data inicial" e a "Data final" para buscar os alunos');
+      $("#absence_justification_student_ids").select2({ data: [], multiple: false });
+      return;
+    }
+
+    const classroom_id = $classroom.select2('val');
+    const startDate = $absenceDate.val();
+    const endDate = $absenceDateEnd.val();
+
+    $student.select2('val', '');
+    $student.select2({ data: [], multiple: true });
+
+    const filter = {
+      classroom: classroom_id,
+      start_at: startDate,
+      end_at: startDate,
+      show_inactive: false
+    };
+
+    if (!_.isEmpty(classroom_id) && !_.isEmpty(startDate) && !_.isEmpty(startDate)) {
+      $.ajax({
+        url: Routes.by_date_range_student_enrollments_lists_pt_br_path({
+          filter: filter,
+          format: 'json'
+        }),
+        success: fetchStudentsSuccess,
+        error: fetchStudentsError
+      });
+    }
+  };
+
+  function fetchStudentsSuccess(data) {
+    const students = (data.student_enrollments_lists || []).map(studentEnrollment => {
+      return { id: studentEnrollment['student']['id'], text: studentEnrollment['student']['name'] };
+    });
+
+    $student.select2({ data: students, multiple: true });
+  };
+
+  function fetchStudentsError() {
+    flashMessages.error('Ocorreu um erro ao buscar os alunos!')
+  };
+
+  toggleStudent($classroom.val() != '' && $classroom.val() != 'empty');
+
+  function toggleStudent(show) {
+    if (show) {
+      $studentDiv.show();
+    } else {
+      $studentDiv.hide();
+    }
+  }
+
+  function onChangeFileElement() {
+    if (this.files[0].size > 3145728) {
+      $(this).closest(".control-group").find('span').remove();
+      $(this).closest(".control-group").addClass("error");
+      $(this).after('<span class="help-inline">tamanho máximo por arquivo: 3 MB</span>');
+      $(this).val("");
+    } else {
+      $(this).closest(".control-group").removeClass("error");
+      $(this).closest(".control-group").find('span').remove();
+    }
+  }
+
+  $('#absence_justification').on('cocoon:after-insert', function (e, item) {
+    $(item).find('input.file').on('change', onChangeFileElement);
+  });
+
+  $absenceDate.on('change', fetchStudents);
+  $absenceDateEnd.on('change', fetchStudents);
+
+  if ($period.val() == '') {
+    var params = {classroom_id: $classroom.val() };
+    fetchPeriod(params)
+  }
+
+});

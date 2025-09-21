@@ -1,0 +1,49 @@
+<div class="widget-body no-padding">
+  <div class="table-responsive">
+  <%= simple_form_for :filter, {url: learning_objectives_and_skills_path, method: :get,
+                                html: {class: 'filterable_search_form'}} do |f| %>
+    <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover"
+           id="resources">
+      <thead>
+        <tr>
+          <th scope="col"><%= f.input :by_code, label: false, placeholder: "Código" %></th>
+          <th scope="col"><%= f.input :by_description, label: false, placeholder: "Filtrar objetivo/habilidade" %></th>
+          <th scope="col">
+            <%= f.input :by_step, as: :select2, label: false, placeholder: "Filtrar etapa",
+              elements: BnccSteps.to_select.to_json %>
+          </th>
+            <th scope="col">
+              <%= f.input :by_grade, as: :select2, label: false, placeholder: "Filtrar série",
+                elements: @grades.to_json %>
+            </th>
+          <th scope="col" class="actions">
+          </th>
+        </tr>
+        <tr>
+          <th scope="col"><%= LearningObjectivesAndSkill.human_attribute_name :code %></th>
+          <th scope="col"><%= LearningObjectivesAndSkill.human_attribute_name :description %></th>
+          <th scope="col"><%= LearningObjectivesAndSkill.human_attribute_name :step %></th>
+          <th scope="col"><%= LearningObjectivesAndSkill.human_attribute_name :grades %></th>
+          <th scope="col" class="actions" style="width: 160px;">
+            <% if policy(LearningObjectivesAndSkill).new? %>
+                <%= link_to t('.new_html'), new_learning_objectives_and_skill_path, class: "btn btn-primary" %>
+            <% end %>
+          </th>
+        </tr>
+      </thead>
+
+      <%= render 'resources' %>
+      <tfoot id="paginator" class="remote">
+        <td colspan="5">
+          <div id="page_entries_info" class="pull-left hidden-xs">
+            <%= page_entries_info @learning_objectives_and_skills %>
+          </div>
+          <div class="pull-right">
+            <%= paginate @learning_objectives_and_skills %>
+          </div>
+        </td>
+      </tfoot>
+    </table>
+  <% end %>
+  </div>
+</div>

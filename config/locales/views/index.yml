@@ -1,0 +1,20 @@
+pt-BR:
+  views:
+    index:
+      no_record_found: "Nenhum registro encontrado"
+      actions: "Ações"
+      show: "Visualizar"
+      print: "Imprimir"
+      edit: "Editar"
+      delete: "Excluir"
+      confirm: "Ao excluir, a frequência vinculada será alterada para falta nas aulas e dias definidos na justificativa.Você tem certeza?"
+      confirm_deletion: Tem certeza que deseja excluir? Ao prosseguir todos os dados vinculados ao registro serão permanentemente removidos.
+
+      tooltips:
+        print: "Imprimir"
+        show: "Visualizar"
+        edit: "Editar"
+        delete: "Excluir"
+        copy: "Copiar"
+        comments: "Comentários"
+        show_report: "Emitir relatório"

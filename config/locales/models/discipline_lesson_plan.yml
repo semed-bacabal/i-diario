@@ -1,0 +1,32 @@
+pt-BR:
+  activerecord:
+    models:
+      discipline_lesson_plan:
+        one: "Plano de aula por disciplina"
+        other: "Planos de aula por disciplina"
+
+    attributes:
+      discipline_lesson_plan:
+        lesson_plan: "Plano de aula"
+        lesson_plan_id: "Plano de aula"
+        discipline: "Disciplina"
+        discipline_id: "Disciplina"
+        author: "Autor"
+        objectives: "Objetivos"
+        contents: "Conteúdos"
+        thematic_unit: "Unidade temática"
+        lesson_plan:
+          start_at: 'Data inicial'
+          end_at: 'Data final'
+          objectives:
+            description: 'Objetivos/habilidades'
+    errors:
+      models:
+        lesson_plan:
+          attributes:
+            base:
+              uniqueness_of_discipline_lesson_plan: "Já existe um plano de aula para o período informado"
+        discipline_lesson_plan:
+          attributes:
+            base:
+              uniqueness_of_discipline_lesson_plan: "Já existe um plano de aula para o período informado"

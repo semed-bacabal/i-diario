@@ -1,0 +1,122 @@
+<div class="widget-body no-padding">
+  <table class="table table-bordered table-only-inner-bordered">
+    <thead>
+      <th><%= DailyNote.human_attribute_name :unity %></th>
+      <th><%= DailyNote.human_attribute_name :classroom %></th>
+      <th><%= DailyNote.human_attribute_name :discipline %></th>
+      <th><%= DailyNote.human_attribute_name :avaliation %></th>
+      <th></th>
+    </thead>
+    <tbody style="border-bottom: 1px solid #ccc;">
+      <td><%= @daily_note.classroom.unity %></td>
+      <td><%= @daily_note.classroom %></td>
+      <td><%= @daily_note.discipline %></td>
+      <td><%= @daily_note.avaliation.description_to_teacher %></td>
+      <td style='white-space: nowrap;width: 1%;'>
+        <%= link_to("#", class: 'btn btn-primary btn-exempt-students-disabled open-exemption-modal',
+                         id: 'exempt_students_button',
+                         disabled: true) do %>
+          Dispensar selecionados
+        <% end %>
+      </td>
+    </tbody>
+  </table>
+
+  <%= hidden_field_tag(:daily_note_id, @daily_note.id) %>
+
+  <%= simple_form_for @daily_note, html: { class: "smart-form" } do |f| %>
+    <%= f.error_notification %>
+    <%= render 'shared/base_error_alert', f: f %>
+
+    <table class="table table-bordered table-only-inner-bordered table-striped table-hover">
+      <colgroup>
+        <col style="width: 65px;" />
+        <col />
+        <col style="width: 200px;" />
+      </colgroup>
+      <thead>
+        <th>
+          <div class="controls input">
+            <label class="checkbox">
+              <input class="boolean optional exempt_student_check_all" type="checkbox">Sequencial<i></i>
+            </label>
+          </div>
+        </th>
+        <th><%= DailyNoteStudent.human_attribute_name :student %></th>
+        <th><%= DailyNoteStudent.human_attribute_name :note %></th>
+      </thead>
+      <tbody id="students">
+        <% sequence = 0 %>
+        <%= f.fields_for :students, @normal_students do |student| %>
+          <% sequence += 1 %>
+          <%= render 'student_fields', f: student, sequence: sequence %>
+        <% end %>
+
+        <% sequence = 0 %>
+        <% if @dependence_students && @dependence_students.any? %>
+          <%= f.fields_for :students, @dependence_students do |student| %>
+            <% sequence += 1 %>
+            <%= render 'student_fields', f: student, sequence: sequence %>
+          <% end %>
+
+          <tr>
+            <td colspan="3">
+              <span class="daily-note-student-legend">
+                <%= t('.dependence_students_legend') %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+        <% if @any_exempted_student %>
+          <tr>
+            <td colspan="3">
+              <span class="daily-note-student-legend">
+                <%= t('.exempted_students_legend') %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+
+        <% if @any_inactive_student %>
+          <tr>
+            <td colspan="3">
+              <span class="daily-note-student-legend">
+                <%= t('.inactive_students_legend') %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+
+        <% if @any_student_exempted_from_discipline %>
+          <tr>
+            <td colspan="3">
+              <span class="daily-note-student-legend">
+                <%= t('.exempted_students_from_discipline_legend') %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+
+        <% if @any_in_active_search %>
+          <tr>
+            <td colspan="3">
+              <span class="daily-note-student-legend">
+                <%= t('.in_active_search') %>
+              </span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <footer>
+      <%= link_to t('daily_notes.destroy'), daily_note_path(@daily_note), method: :delete, data: { confirm: t('daily_notes.confirm') }, class: 'btn btn-danger' %>
+      <%= link_to t('views.form.history'),
+                    history_daily_note_path(@daily_note),
+                    class: 'btn btn-info' %>
+      <%= f.submit 'Salvar', class: 'btn btn-primary', data: { disable_with: 'Salvando...'} %>
+    </footer>
+  <% end %>
+</div>
+
+<%= render 'exemption_modal' %>

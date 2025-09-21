@@ -1,0 +1,46 @@
+<% content_for :js do %>
+  <%= javascript_include_tag 'views/absence_justifications/index' %>
+<% end %>
+
+<div class="widget-body no-padding">
+  <div class="table-responsive">
+  <%= simple_form_for :search, {url: absence_justifications_path, method: :get,
+                                html: {class: 'filterable_search_form'}} do |f| %>
+    <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover" id="resources">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"><%= f.input :by_classroom, as: :select2, elements: @classrooms, label: false, placeholder: "Filtrar turma" %></th>
+          <th scope="col"><%= f.input :by_student, label: false, placeholder: "Filtrar aluno" %></th>
+          <th scope="colgroup" colspan="3"><%= f.input :by_date, as: :date, label: false, placeholder: "Filtrar data" %></th>
+          <th scope="col"><%= f.input :by_author, as: :select2, elements: AbsenceJustificationAuthors.to_select.to_json,
+                label: false, placeholder: t('.by_author') %></th>
+          <th scope="col" class="actions" style="width: 18px;"><%= link_to t('.new_html'), new_absence_justification_path, class: "btn btn-primary" %></th>
+        </tr>
+        <tr>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :unity %></th>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :classroom %></th>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :student %></th>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :absence_date %></th>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :absence_date_end %></th>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :class_number %></th>
+          <th scope="col"><%= AbsenceJustification.human_attribute_name :author %></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <%= render 'resources' %>
+      <tfoot id="paginator" class="remote">
+        <td colspan="8">
+          <div id="page_entries_info" class="pull-left hidden-xs">
+            <%= page_entries_info @absence_justifications %>
+          </div>
+          <div class="pull-right">
+            <%= paginate @absence_justifications %>
+          </div>
+        </td>
+      </tfoot>
+    </table>
+  <% end %>
+  </div>
+</div>

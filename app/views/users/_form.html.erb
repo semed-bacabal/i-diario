@@ -1,0 +1,52 @@
+<%= simple_form_for @user, html: { class: "smart-form user-form" } do |f| %>
+  <%= f.error_notification %>
+
+  <ul class="nav nav-tabs bordered">
+    <li id='li-user' class="<%= 'active' if @active_user_tab %>">
+      <a id='a-user' href="#user" data-toggle="tab">Usuário</a>
+    </li>
+
+    <li id='li-permissions' class="<%= 'active' if  @active_permissions_tab%>">
+      <a id='a-permissions' href="#permissions" data-toggle="tab">Permissões</a>
+    </li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane <%= 'active' if @active_user_tab %>" id="user">
+      <%= render 'user', f: f %>
+    </div>
+
+    <div class="tab-pane <%= 'active' if @active_permissions_tab %>" id="permissions">
+      <tbody>
+        <table class="table table-striped table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>Funcionalidade</th>
+              <th>Acesso</th>
+            </tr>
+          </thead>
+          <%= render 'permission', f: f %>
+        </table>
+      </tbody>
+
+    </div>
+  </div>
+
+  <footer>
+    <%= link_to users_path, class: "btn btn-default" do %>
+      Voltar
+    <% end %>
+
+    <% if @user.persisted? %>
+      <%= link_to 'Histórico', history_user_path(@user), class: 'btn btn-info' %>
+    <% end %>
+
+    <button type="submit" class="btn btn-primary">
+      Salvar
+    </button>
+  </footer>
+<% end %>
+
+<script>
+  window.roles = <%= raw Role.ordered.to_json %>;
+</script>

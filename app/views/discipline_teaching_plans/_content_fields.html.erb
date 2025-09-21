@@ -1,0 +1,10 @@
+<tr class="nested-fields">
+  <td>
+    <%= f.text_area :description, label: false, readonly: action_name == 'show', rows: 1 %>
+  </td>
+
+  <td class="actions">
+    <%= f.hidden_field :id %>
+    <%= link_to_remove_association t('.remove'), f, class: 'btn btn-danger btn-sm', disabled: action_name == 'show' %>
+  </td>
+</tr>

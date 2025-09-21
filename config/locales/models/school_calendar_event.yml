@@ -1,0 +1,41 @@
+pt-BR:
+  activerecord:
+    models:
+      school_calendar_event:
+        one: "Evento do calendário letivo"
+        other: "Eventos do calendário letivo"
+
+    attributes:
+      school_calendar_event:
+        school_calendar_id: "Calendário letivo"
+        duration: "Duração"
+        start_date: "Data inicial"
+        end_date: "Data final"
+        description: "Título"
+        event_type: "Tipo"
+        course: "Curso"
+        course_id: "Curso"
+        classroom: "Turma"
+        classroom_id: "Turma"
+        grade: "Série"
+        grade_id: "Série"
+        coverage: "Cobertura"
+        periods: "Turnos"
+        legend: "Legenda"
+        discipline_id: "Disciplina"
+        discipline: "Disciplina"
+        show_in_frequency_record: "Apresentar no Registro de frequência"
+        general_description: "Descrição do evento"
+
+    errors:
+      models:
+        school_calendar_event:
+          attributes:
+            start_date:
+              already_exists_event_in_this_date: "Já existe um evento cadastrado de outro tipo nesta data"
+            end_date:
+              already_exists_event_in_this_date: "Já existe um evento cadastrado de outro tipo nesta data"
+
+  school_calendar_events:
+    index:
+      new_html: "<i class='fa fa-plus'></i> Novo evento"

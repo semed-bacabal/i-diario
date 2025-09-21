@@ -1,0 +1,35 @@
+<div class="well no-padding">
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "smart-form client-form" }) do |f| %>
+    <header>Alterar sua senha</header>
+    <%= f.error_notification %>
+
+    <%= f.input :reset_password_token, as: :hidden %>
+    <%= f.full_error :reset_password_token %>
+
+    <fieldset>
+      <section>
+        <%= f.label :password, "Nova senha", class: "label" %>
+        <label class="input">
+          <i class="icon-append fa fa-lock"></i>
+          <%= f.input_field :password, required: false %>
+        </label>
+      </section>
+
+      <section>
+        <%= f.label :password_confirmation, "Confirme sua nova senha", class: "label" %>
+        <label class="input">
+          <i class="icon-append fa fa-lock"></i>
+          <%= f.input_field :password_confirmation, required: false %>
+        </label>
+
+        <div class="note">
+          <%= render "devise/shared/links" %>
+        </div>
+      </section>
+    </fieldset>
+
+    <footer>
+      <%= f.button :submit, "Alterar minha senha", class: "btn btn-primary" %>
+    </footer>
+  <% end %>
+</div>

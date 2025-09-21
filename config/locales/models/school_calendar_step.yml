@@ -1,0 +1,27 @@
+pt-BR:
+  activerecord:
+    models:
+      school_calendar_step:
+        one: "Etapa de calendário letivo"
+        other: "Etapas de calendário letivo"
+
+    attributes:
+      school_calendar_step:
+        school_calendar_id: "Calendário letivo"
+        start_at: "Data inicial"
+        end_at: "Data final"
+        start_date_for_posting: "Data inicial para lançamentos"
+        end_date_for_posting: "Data final para lançamentos"
+
+    errors:
+      models:
+        school_calendar_step:
+          attributes:
+            start_at:
+              must_be_less_than_end_at: "não pode ser maior ou igual a data final"
+              must_not_have_conflicting_steps: "A data informada não pode ser um dia letivo em outro calendário escolar"
+            end_at:
+              end_at_must_be_valid: "não pode maior que %{valid_date}"
+              must_not_have_conflicting_steps: "A data informada não pode ser um dia letivo em outro calendário escolar"
+            end_date_for_posting:
+              must_be_greater_than_start_date_for_posting: "não pode ser menor que a data inicial para lançamentos"

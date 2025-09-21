@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" id="extr-page">
+  <head>
+    <title>i-Diário</title>
+    <%= render '/layouts/default_headers' %>
+  </head>
+
+  <body class="animated fadeInDown">
+    <header id="header">
+      <div id="logo-group">
+      <%= link_to image_tag(logo_url, height: '60px'), root_path %>
+      </div>
+    </header>
+
+    <div id="main" role="main">
+      <div id="content" class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="alert alert-block alert-danger">
+              <h1 class="alert-heading"><i class="fa-fw fa fa-warning"></i> Acesso suspenso</h1>
+              <h4>Desculpe-nos, o acesso ao sistema foi suspenso. Por favor, entre em contato com o responsável pelo sistema na instituição que você está tentando obter acesso.</h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 hidden-xs hidden-sm hidden-md <%= current_entity.disabled ? 'col-md-12 col-lg-12' : 'col-md-7 col-lg-8' %>">
+            <h1 class="login-header-big txt-color-portabilis">Serviços eletrônicos para a Comunidade escolar</h1>
+            <div class="hero">
+
+              <div class="pull-left login-desc-box-l">
+                <h4 class="paragraph-header">Estamos ajudando a conectar pais, alunos e professores. Crie sua conta e confira. Ensinar e aprender nunca foi tão morderno!</h4>
+                <div class="login-app-icons">
+                  <%= link_to 'Saiba mais', entity_website, target: '_blank', class: 'btn btn-portabilis btn-sm' %>
+                </div>
+              </div>
+
+              <%= image_tag 'tablet_boletim.png', height: '220px' %>
+
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h5 class="about-heading">Quais recursos estão disponíveis?</h5>
+                <p>
+                  Este serviço disponibiliza recursos e informações para pais, alunos e professores. A disponibilidade destes depende exclusivamente da instituição.
+                </p>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h5 class="about-heading">Como obter ajuda?</h5>
+                <p>
+                  Se você precisar de ajuda, poderá contatar por e-mail ou telefone a instituição que você está tentando obter acesso.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

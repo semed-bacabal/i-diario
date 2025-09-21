@@ -1,0 +1,28 @@
+<div class="widget-body no-padding">
+  <div class="table-responsive">
+    <table class="table table-bordered table-only-inner-bordered table-striped table-condensed table-hover" id="resources">
+      <thead>
+        <tr>
+          <th scope="col"><%= Role.human_attribute_name :name %></th>
+          <th scope="col"><%= Role.human_attribute_name :author %></th>
+          <th scope="col"><%= Role.human_attribute_name :access_level %></th>
+          <% if policy(@roles).update? %>
+            <th scope="col" style="text-align: right; width: 150px;"><%= link_to t('.new_html'), new_role_path, class: "btn btn-primary" %></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <%= render 'resources' %>
+      <tfoot id="paginator" class="remote">
+        <td colspan="<%= policy(@roles).update? ? '4' : '3' %>">
+          <div id="page_entries_info" class="pull-left hidden-xs">
+            <%= page_entries_info @roles %>
+          </div>
+          <div class="pull-right">
+            <%= paginate @roles %>
+          </div>
+        </td>
+      </tfoot>
+    </table>
+  </div>
+</div>

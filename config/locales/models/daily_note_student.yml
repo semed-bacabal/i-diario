@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    attributes:
+      daily_note_student:
+        student: "Aluno"
+        student_id: "Aluno"
+        note: "Nota"
+        transfer_note_id: "Nota de transferência"
+        active: "Ativo"

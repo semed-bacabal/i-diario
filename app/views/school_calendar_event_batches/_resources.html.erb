@@ -1,0 +1,26 @@
+<tbody id="resources-tbody">
+  <% if @school_calendar_event_batches.empty? %>
+    <tr>
+      <td class="no_record_found" colspan="6"> <%= t('views.index.no_record_found')%></td>
+    </tr>
+  <% else %>
+    <% @school_calendar_event_batches.each do |school_calendar_event| %>
+      <tr>
+        <td><%= school_calendar_event.year %></td>
+        <td><%= school_calendar_event.duration %></td>
+        <td><%= school_calendar_event.description %></td>
+        <td><%= school_calendar_event.event_type_humanize %></td>
+        <td><%= school_calendar_event.batch_status_humanize %></td>
+        <td class="actions">
+          <%= link_to 'Editar', edit_school_calendar_event_batch_path(school_calendar_event),
+            class: "btn btn-success", disabled: school_calendar_event.started? %>
+          <%= link_to '#', class: 'btn btn-danger', disabled: school_calendar_event.started?,
+                      data: { toggle: "modal", target: "#modal-delete-school_calendar_event-#{school_calendar_event.id}" } do %>
+            Excluir
+          <% end %>
+          <%= render 'confirm_delete_event_model', :school_calendar_event => school_calendar_event %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>

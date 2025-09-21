@@ -1,0 +1,9 @@
+admin:
+  name: "Administrador"
+  access_level: "administrator"
+  author: john_doe
+
+secretary:
+  name: "Secretária"
+  access_level: "teacher"
+  author: john_doe

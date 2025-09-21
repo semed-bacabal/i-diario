@@ -1,0 +1,55 @@
+<tbody id="resources-tbody">
+  <% if @knowledge_area_content_records.empty? %>
+    <tr>
+      <td class="no_record_found" colspan="5"><%= t('views.index.no_record_found')%></td>
+    </tr>
+  <% else %>
+    <% @knowledge_area_content_records.each do |knowledge_area_content_record| %>
+      <tr>
+        <td class="classroom"><%= knowledge_area_content_record.content_record.classroom %></td>
+        <td class="knowledge_area">
+          <% knowledge_area_content_record.knowledge_areas.each do |knowledge_area| %>
+            <span class="label label-info label-list">
+              <%= knowledge_area.description %>
+            </span>
+          <% end %>
+        </td>
+        <td class="record_date"><%= l(knowledge_area_content_record.content_record.record_date) %></td>
+        <td><%= knowledge_area_content_record.content_record.decorator.author(current_teacher) %></td>
+        <td class="actions">
+          <%= link_to(
+                t('helpers.links.copy_html'),
+                '#',
+                class: 'btn btn-primary apply_tooltip open_copy_modal',
+                data: { original_title: t('views.index.tooltips.copy'),
+                        knowledge_area_content_record_id: knowledge_area_content_record.id,
+                        classroom_id: knowledge_area_content_record.classroom.id,
+                        grade_id: knowledge_area_content_record.classroom.grade_ids
+                      }) %>
+          <%= link_to(
+                t('helpers.links.show_html'),
+                knowledge_area_content_record_path(knowledge_area_content_record),
+                class: 'btn btn-info apply_tooltip',
+                data: { original_title: t('views.index.tooltips.show') }) %>
+          <%= link_to(
+                t('helpers.links.edit_html'),
+                edit_knowledge_area_content_record_path(knowledge_area_content_record),
+                class: 'btn btn-success apply_tooltip',
+                data: { original_title: t('views.index.tooltips.edit') }
+              ) %>
+          <%= link_to(
+                  t('helpers.links.destroy_html'),
+                  knowledge_area_content_record_path(knowledge_area_content_record),
+                  class: 'btn btn-danger apply_tooltip',
+                  disabled: !content_record_destroy?(knowledge_area_content_record.content_record),
+                  method: 'delete',
+                  data: {
+                    confirm: t('views.index.confirm_deletion'),
+                    original_title: t('views.index.tooltips.delete')
+                  }
+                ) %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</tbody>

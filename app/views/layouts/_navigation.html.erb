@@ -1,0 +1,11 @@
+<% content_for :js do %>
+  <%= javascript_include_tag 'views/layouts/role_bar' %>
+<% end %>
+
+<aside id="left-panel">
+  <nav>
+    <%= menus %>
+  </nav>
+</aside>
+
+<%= hidden_field :current_action_, '', value: controller.action_name %>

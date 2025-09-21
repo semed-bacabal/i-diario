@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      ieducar_api_configuration:
+        one: "API de integração"
+        other: "API de integração"
+
+    attributes:
+      ieducar_api_configuration:
+        url: "URL do i-Educar"
+        token: "Chave de acesso"
+        secret_token: "Chave secreta"
+        unity_code: "Código da instituição"
+        api_security_token: "Token de segurança do i-diário"

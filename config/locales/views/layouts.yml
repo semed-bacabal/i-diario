@@ -1,0 +1,22 @@
+pt-BR:
+  layouts:
+    application:
+      current_user_role: "Perfil atual:"
+      role: "Perfil"
+      unit: "Unidade"
+      school_year: "Ano letivo"
+      classroom: "Turma"
+      teacher: "Professor(a)"
+      discipline: "Disciplina"
+      change_profile: "Alterar perfil"
+      cancel: "Cancelar"
+      edit_profile: "Editar meus dados"
+      select: "Selecione"
+    error_messages:
+      needs_all_fields: "É necessário selecionar todos os campos para continuar a navegação."
+      fetch_teachers_error: 'Ocorreu um erro ao buscar os professores da unidade selecionada.'
+      fetch_years_error: 'Ocorreu um erro ao buscar os anos letivos da unidade selecionada.'
+      fetch_classrooms_error: 'Ocorreu um erro ao buscar as turmas do professor selecionado.'
+      fetch_discipines_error: 'Ocorreu um erro ao buscar as disciplinas da turma selecionada.'
+      fetch_schools_error: 'Ocorreu um erro ao buscar as escolas.'
+      fetch_access_level_error: 'Ocorreu um erro ao buscar o nível de acesso da permissão selecionada.'

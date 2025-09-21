@@ -1,0 +1,9 @@
+pt-BR:
+  enumerations:
+    api_posting_types:
+      absence: "Faltas"
+      conceptual_exam: "Avaliações conceituais"
+      descriptive_exam: "Avaliações descritivas"
+      numerical_exam: "Avaliações numéricas"
+      final_recovery: "Recuperações finais"
+      school_term_recovery: "Recuperações de etapas"

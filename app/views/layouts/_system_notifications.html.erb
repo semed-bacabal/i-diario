@@ -1,0 +1,60 @@
+<% if Rails.application.secrets.new_update_profile_enabled %>
+  <div class="user-info transparent pull-right">
+    <a class="pull-right dropdown-toggle"
+      data-toggle="dropdown"
+      id="dropdownMenu1"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="true">
+
+      <i class="fa fa-angle-down"></i>
+      <%= profile_picture_tag(current_user, id: 'menu_avatar') %>
+    </a>
+    <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
+      <li>
+        <%= link_to edit_account_path do %>
+          Editar perfil
+        <% end %>
+      </li>
+      <li role="separator" class="divider"></li>
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          Sair
+        <% end %>
+      </li>
+    </ul>
+  </div>
+<% else %>
+  <div id="logout" class="btn-header transparent pull-right">
+    <span>
+      <%= link_to content_tag(:i, '', class: 'fa fa-sign-out'), destroy_user_session_path, method: :delete, id: "sign_out" %>
+    </span>
+  </div>
+<% end %>
+
+<div class="btn-header transparent pull-right">
+  <a id="activity" class="activity-dropdown">
+    <i class="fa fa-bell"></i>
+    <b class="badge bounceIn animated"><%= unread_notifications_count %></b>
+  </a>
+</div>
+
+<div class="ajax-dropdown notifications" style="display: none;">
+  <div class="ajax-notifications custom-scroll" style="opacity: 1;">
+    <ul class="notification-body">
+      <% last_system_notifications.each do |notification| %>
+        <li>
+          <span>
+            <%= link_to_if_and_else !notification.is_generic?, system_notification_path(notification),
+              class: "msg", target: (notification.open_link_in_new_tab? ? "_blank" : "_self") do %>
+              <span class="from" style="display: block;"><%= notification.title %><i class="icon-paperclip"></i></span>
+              <time><%= distance_of_time_in_words_to_now notification.created_at %></time>
+              <span class="subject"></span>
+              <span class="msg-body"><%= notification.description.html_safe %></span>
+            <% end %>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

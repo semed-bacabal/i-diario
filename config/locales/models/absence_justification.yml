@@ -1,0 +1,48 @@
+pt-BR:
+  activerecord:
+    models:
+      absence_justification:
+        one: "Justificativa de falta"
+        other: "Justificativas de falta"
+
+    attributes:
+      absence_justification:
+        author_id: "Autor"
+        author: "Autor"
+        justification: "Justificativa"
+        school_calendar_id: "Calendário letivo"
+        absence_date: "Data inicial"
+        absence_date_end: "Data final"
+        students: "Alunos"
+        student: "Aluno"
+        unity: "Escola"
+        unity_id: "Escola"
+        classroom: "Turma"
+        classroom_id: "Turma"
+        discipline: "Disciplina"
+        disciplines: "Disciplinas"
+        author: "Autor"
+        class_number: "Aula"
+        period: "Turno"
+        teacher_id: "Professor"
+        legacy: "Antigo?"
+        user_id: "Usuário"
+        discarded_at: "Descartado?"
+
+    errors:
+      models:
+        absence_justification:
+          attributes:
+              absence_date:
+                taken: 'já existe uma justificativa para esta data'
+                not_greater_than_final: 'não pode ser maior que a Data final'
+              absence_date_end:
+                taken: 'já existe uma justificativa para esta data'
+                not_less_than_initial: 'deve ser maior ou igual a Data inicial'
+              base:
+                discipline_period_absence: 'Já existe uma justificativa para a disciplina e período informados'
+                general_period_absence: "Já existe uma justificativa de falta no período informado para o(a) professor(a) %{teacher}"
+              students:
+                at_least_one_student: 'deve selecionar pelo menos um aluno'
+              disciplines:
+                at_least_one_discipline: 'deve selecionar pelo menos uma disciplina'

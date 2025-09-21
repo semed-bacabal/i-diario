@@ -1,0 +1,38 @@
+pt-BR:
+  activerecord:
+    models:
+      unity:
+        one: "Unidade"
+        other: "Unidades"
+
+    attributes:
+      unity:
+        name: "Nome"
+        phone: "Telefone"
+        email: "E-mail"
+        responsible: "Responsável"
+        api_code: "Código da escola no i-Educar"
+        author: "Autor"
+        unit_type: "Tipo de unidade"
+        address: "Endereço"
+        active: "Ativo?"
+
+    errors:
+      models:
+        unity:
+          attributes:
+            unity_equipments:
+              uniqueness_of_items: "Não é permitido códigos iguais para equipamentos da mesma unidade."
+
+  unity:
+    help:
+      api_code: "Usaremos este código para vincular uma unidade deste sistema a uma unidade escolar do sistema i-Educar."
+
+  unities:
+    index:
+      new_html: <i class="fa fa-plus"></i> Nova unidade
+      synchronize_html: A sincronização das unidades esta sendo feita em Configurações/API de integração > Sincronizar
+    form:
+      add_unity_equipment: "Adicionar equipamento"
+    unity_equipment_fields:
+      remove: "Remover"

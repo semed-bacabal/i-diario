@@ -1,0 +1,8 @@
+pt-BR:
+  enumerations:
+    periods:
+      matutinal: "Matutino"
+      vespertine: "Vespertino"
+      nightly: "Noturno"
+      full: "Integral"
+      intermediate: "Intermediário"

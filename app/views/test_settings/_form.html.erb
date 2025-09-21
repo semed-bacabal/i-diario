@@ -1,0 +1,173 @@
+<div id="flash-messages">
+  <p class="alert alert-info calculation-info hidden" id="arithmetic-calculation-info">
+    <i class="fa-fw fa fa-info"></i>
+    <%= t('.arithmetic_calculation_info_html') %>
+  </p>
+
+  <p class="alert alert-info calculation-info hidden" id="sum-calculation-info">
+    <i class="fa-fw fa fa-info"></i>
+      <%= t('.sum_calculation_info_html') %>
+  </p>
+
+  <p class="alert alert-info calculation-info hidden" id="arithmetic_and_sum-calculation-info">
+    <i class="fa-fw fa fa-info"></i>
+      <%= t('.arithmetic_and_sum_calculation_info_html') %>
+  </p>
+</div>
+
+<div class="widget-body no-padding">
+
+  <%= simple_form_for @test_setting, html: { class: "smart-form" } do |f| %>
+    <% if f.object.errors[:base].present? %>
+      <div class="alert alert-danger fade in">
+        <i class="fa-fw fa fa-times"></i>
+          <%= f.object.errors[:base].first %>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <% content_for :js do %>
+        <%= javascript_include_tag 'views/test_settings/form' %>
+      <% end %>
+
+      <div class="row">
+        <div class="col col-sm-3">
+          <%= f.input :exam_setting_type, as: :select2, elements: ExamSettingTypes.to_select.to_json %>
+        </div>
+
+        <div class="col col-sm-3">
+          <%= f.input :year, input_html: { max_length: 4 } %>
+        </div>
+
+        <div id="test_setting_school_term_div" class="col col-sm-3">
+          <%= f.association :school_term_type_step, as: :select2,
+                            elements: SchoolTermTypeStep.to_select2(
+                              current_user.current_school_year
+                            ).to_json, required: true %>
+        </div>
+
+        <div class="col col-sm-3" id="test_setting_unities_div">
+          <div style="float:right;">
+            <a href="#" style="text-decoration:none;" id="select-all-unities">Selecionar todos</a>
+            <a href="#" style="display: none;text-decoration:none;" id="deselect-all-unities">Remover todos</a>
+          </div>
+          <%= f.input :unities, as: :select2, multiple: true, elements: @unities, required: true, input_html: { value: f.object.unities.join(','), data: { without_json_parser: true } } %>
+        </div>
+
+        <div class="col col-sm-3" id="test_setting_grades_div">
+          <div style="float:right;">
+            <a href="#" style="text-decoration:none;" id="select-all-grades">Selecionar todos</a>
+            <a href="#" style="display: none;text-decoration:none;" id="deselect-all-grades">Remover todos</a>
+          </div>
+          <%= hidden_field_tag :grades_list %>
+          <%= f.input :grades, as: :select2, multiple: true, elements: grades, input_html: { value: f.object.grades.join(','), data: { without_json_parser: true } } %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-sm-3">
+          <%= f.input :maximum_score %>
+        </div>
+
+        <div class="col col-sm-3">
+          <%= f.input :minimum_score, input_html: {
+                                        rel: 'popover-hover',
+                                        data: {
+                                          placement: 'top',
+                                          content: t('test_settings.form.minimum_score_warn.'),
+                                          toggle: 'popover'
+                                        }
+                                      }
+          %>
+        </div>
+
+        <div class="col col-sm-3">
+          <%= f.input :number_of_decimal_places %>
+        </div>
+
+        <div class="col col-sm-3">
+          <%= f.input :average_calculation_type, as: :select2, elements: AverageCalculationTypes.to_select.to_json %>
+        </div>
+
+        <div class="controls input col col-sm-3" id="division-weight-check-container">
+          <label class="checkbox">
+            <input class="boolean optional"
+                  type="checkbox"
+                  value=<%= '1' if show_checked(f.object) %>
+                  checked=<%= 'checked' if show_checked(f.object) %>
+                  id="division-weight-check"> Gerar média das avaliações?<i></i>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-sm-3 <%= 'hidden' unless weight_error(f.object) %>"
+             id="division-weight-input">
+          <%= f.input :default_division_weight, input_html: { min: 1 }, required: true %>
+        </div>
+      </div>
+
+    </fieldset>
+
+    <fieldset id="item_setting_tests">
+      <legend><%= t('.tests') %></legend>
+
+      <p class="alert alert-info">
+        <i class="fa-fw fa fa-info"></i>
+        <%= t('.allow_break_up_info_html') %>
+      </p>
+
+      <div>
+        <% if f.object.errors[:tests].any? %>
+          <div class="alert alert-danger fade in">
+            <i class="fa-fw fa fa-times"></i>
+            <% f.object.errors[:tests].each do |error| %>
+              <%= error %><br/>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <table class="table table-striped table-bordered table-condensed records">
+        <thead>
+          <tr>
+            <th><%= TestSettingTest.human_attribute_name :description %></th>
+            <th><%= TestSettingTest.human_attribute_name :weight %></th>
+            <th width="50px"><%= TestSettingTest.human_attribute_name :allow_break_up %></th>
+            <th width="50px"></th>
+          </tr>
+        </thead>
+
+        <tbody id="test-settings-tests">
+          <tr>
+            <td class="no_item_found" colspan="5" style="<%= @test_setting.tests.reject(&:marked_for_destruction?).empty? ? 'display: table-cell;' : 'display: none;' %>" ><%= t('.no_item_found') %></td>
+          </tr>
+
+          <%= f.association :tests do |p| %>
+            <%= render 'test_fields', f: p %>
+          <% end %>
+        </tbody>
+
+        <tfoot class="links">
+          <tr>
+            <td colspan="5">
+              <%= link_to_add_association t('.add_test'), f, :tests, 'data-association-insertion-method': 'append',
+                                                                     'data-association-insertion-node':   '#test-settings-tests',
+                                                                     class: 'btn btn-success btn-sm' %>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </fieldset>
+
+    <footer>
+      <%= link_to t('views.form.back'), test_settings_path, class: "btn btn-default" %>
+
+      <% if @test_setting.persisted? %>
+        <%= link_to t('views.form.history'), history_test_setting_path(@test_setting), class: 'btn btn-info' %>
+      <% end %>
+
+      <%= f.submit t('views.form.save'), class: 'btn btn-primary', id: 'test-settings-form-submit', data: { disable_with: 'Salvando...'} %>
+    </footer>
+  <% end %>
+</div>

@@ -1,0 +1,52 @@
+$(function() {
+  'use strict';
+
+  const breakpoint = 1365;
+
+  const $body = $('html, body');
+  const $loginInfo = $('#user-info-selector');
+  const $roleBar = $('#current-role-selector');
+  const $closeBar = $('.role-cancel');
+
+  let documentWidth = window.innerWidth;
+
+  function isModal() {
+    const size = window.innerWidth;
+
+    return size < breakpoint;
+  }
+
+  $loginInfo.click(function (e) {
+    if ($roleBar.is(':hidden')) {
+      $roleBar.show();
+      $body.css({ overflow: 'hidden' });
+    }
+
+    e.preventDefault();
+  });
+
+  $closeBar.click(function (e) {
+    if ($roleBar.is(':visible')) {
+      $roleBar.hide();
+      $body.css({ overflow: 'auto' });
+    }
+
+    e.preventDefault();
+  });
+
+  $(window).resize(function () {
+    let currDocumentWidth = window.innerWidth;
+
+    if (currDocumentWidth === documentWidth) {
+      return true;
+    }
+
+    if (isModal()) {
+      $roleBar.hide();
+    } else {
+      $roleBar.show();
+    }
+
+    documentWidth = currDocumentWidth;
+  });
+});

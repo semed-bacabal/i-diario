@@ -1,0 +1,11 @@
+prefeitura:
+  name: "Prefeitura"
+  domain: "127.0.0.1"
+  config:
+    database: "idiario_test"
+
+prefeitura_controller:
+  name: "Prefeitura para teste de controller"
+  domain: "test.host"
+  config:
+    database: "idiario_test"
